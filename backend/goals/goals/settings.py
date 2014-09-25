@@ -39,9 +39,11 @@ INSTALLED_APPS = (
     'apps.public',
     'south',
     'rest_framework',
+    'corsheaders'
 )
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,8 +92,10 @@ ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_WHITELIST = (
     'localhost:8000',
     'localhost/',
-    'june-heroku-test-4.herokuapp.com'
 )
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 CORS_ALLOW_HEADERS = (
     'X-REQUESTED-WITH',

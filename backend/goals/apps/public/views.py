@@ -11,7 +11,7 @@ class GoalList(generics.ListCreateAPIView):
     queryset = Goal.objects.all()
 
 
-class AddGoal(generics.CreateAPIView):
+class EditGoal(generics.RetrieveUpdateDestroyAPIView):
     model = Goal
     serializer_class = GoalSerializer
     queryset = Goal.objects.all()

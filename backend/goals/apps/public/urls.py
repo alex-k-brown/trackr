@@ -7,6 +7,6 @@ from django.conf import settings
 urlpatterns = patterns(
     'apps.public.views',
 
-    url(r'^goals/$', GoalList.as_view(), name='recipe-list'),
+    url(r'^goals/$', GoalList.as_view(), name='goal-list'),
 
 )
