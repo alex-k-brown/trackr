@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.public',
-    'south'
+    'south',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,3 +83,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+    'localhost/',
+    'june-heroku-test-4.herokuapp.com'
+)
+
+CORS_ALLOW_HEADERS = (
+    'X-REQUESTED-WITH',
+    'CONTENT-TYPE',
+    'ACCEPT',
+    'ORIGIN',
+    'X-CSRFToken'
+)
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+

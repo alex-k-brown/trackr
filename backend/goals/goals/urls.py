@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
-
+# from apps.public.views import *
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'goals.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+urlpatterns = patterns(
+    # 'apps.public.views',
 
+    # url(r'^goals/$', GoalList.as_view(), name='goal-list'),
+    url(r'^', include('apps.public.urls')),
+    # url(r'^goals$', GoalList.as_view(), name='goal-list'),
     url(r'^admin/', include(admin.site.urls)),
 )
