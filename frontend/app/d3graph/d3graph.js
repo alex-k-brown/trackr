@@ -111,5 +111,8 @@ angular.module('myApp.d3graph', ['ngRoute', 'd3'])
         }])
 
     .controller('d3graphCtrl', ['$scope', function ($scope) {
-
+        $scope.data = [
+            {name: 'Ari', score: 10},
+            {name: 'Q', score: 90}
+        ];
     }]);
