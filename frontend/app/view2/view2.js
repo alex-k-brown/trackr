@@ -9,6 +9,9 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', [function() {
-
-}]);
+.controller('View2Ctrl', ['Restangular', function(Restangular) {
+        // GET a list of all goals
+        Restangular.all('goals').getList().then(function (goals) {
+            $scope.goals = goals;
+        });
+    }])
