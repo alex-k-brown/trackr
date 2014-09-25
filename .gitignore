@@ -2,3 +2,5 @@ db.sqlite3
 *.pyc
 staticfiles
 .idea/
+node_modules/
+bower_components/
