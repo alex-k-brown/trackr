@@ -14,4 +14,4 @@ angular.module('myApp.view2', ['ngRoute'])
         Restangular.all('goals').getList().then(function (goals) {
             $scope.goals = goals;
         });
-    }])
+    }]);
