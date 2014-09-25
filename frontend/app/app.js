@@ -7,8 +7,12 @@ angular.module('myApp', [
     'myApp.view2',
     'myApp.d3graph',
     'myApp.version',
-    'd3'
+    'd3',
+  'restangular'
 ]).
-    config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.otherwise({redirectTo: '/view1'});
-    }]);
+config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
+  $routeProvider.otherwise({redirectTo: '/view1'});
+  RestangularProvider.setBaseUrl('http://localhost:8001');
+}]);
+
+

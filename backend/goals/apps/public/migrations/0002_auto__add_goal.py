@@ -14,9 +14,8 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('description', self.gf('django.db.models.fields.TextField')(default='No description has been entered yet')),
             ('categories', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('timeframe', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['public.TimeFrame'])),
+            ('timeframe', self.gf('django.db.models.fields.DateField')()),
             ('status', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('duedate', self.gf('django.db.models.fields.DateField')(default=False)),
         ))
         db.send_create_signal(u'public', ['Goal'])
 
@@ -29,14 +28,6 @@ class Migration(SchemaMigration):
         ))
         db.create_unique(m2m_table_name, ['from_goal_id', 'to_goal_id'])
 
-        # Adding model 'TimeFrame'
-        db.create_table(u'public_timeframe', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('days', self.gf('django.db.models.fields.IntegerField')(default=False)),
-        ))
-        db.send_create_signal(u'public', ['TimeFrame'])
-
 
     def backwards(self, orm):
         # Deleting model 'Goal'
@@ -45,27 +36,17 @@ class Migration(SchemaMigration):
         # Removing M2M table for field child_goals on 'Goal'
         db.delete_table(db.shorten_name(u'public_goal_child_goals'))
 
-        # Deleting model 'TimeFrame'
-        db.delete_table(u'public_timeframe')
-
 
     models = {
         u'public.goal': {
             'Meta': {'object_name': 'Goal'},
             'categories': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
-            'child_goals': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['public.Goal']", 'null': 'True', 'blank': 'True'}),
+            'child_goals': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['public.Goal']", 'symmetrical': 'False'}),
             'description': ('django.db.models.fields.TextField', [], {'default': "'No description has been entered yet'"}),
-            'duedate': ('django.db.models.fields.DateField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'status': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'timeframe': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['public.TimeFrame']"})
-        },
-        u'public.timeframe': {
-            'Meta': {'object_name': 'TimeFrame'},
-            'days': ('django.db.models.fields.IntegerField', [], {'default': 'False'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+            'timeframe': ('django.db.models.fields.DateField', [], {})
         }
     }
 
