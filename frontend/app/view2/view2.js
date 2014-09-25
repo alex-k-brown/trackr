@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute', 'restangular'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
@@ -9,7 +9,7 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', ['Restangular', function(Restangular) {
+.controller('View2Ctrl', ['$scope', 'Restangular', function($scope, Restangular) {
         // GET a list of all goals
         Restangular.all('goals').getList().then(function (goals) {
             $scope.goals = goals;
