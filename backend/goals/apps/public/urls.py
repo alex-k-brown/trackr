@@ -9,4 +9,5 @@ urlpatterns = patterns(
 
     url(r'^goals/$', GoalList.as_view(), name='goal-list'),
 
+
 )

@@ -6,7 +6,7 @@ from django.db import models
 class Goal(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField(default="No description has been entered yet")
-    categories = models.CharField(max_length=50, blank=True, null=True)
+    # categories = models.CharField(max_length=50, blank=True, null=True)
     timeframe = models.ForeignKey('TimeFrame')
     status = models.BooleanField(default=False)
     child_goals = models.ManyToManyField('Goal', null=True, blank=True)
@@ -19,6 +19,14 @@ class Goal(models.Model):
 class TimeFrame(models.Model):
     name = models.CharField(max_length=50)
     days = models.IntegerField(default=False)
+
+    def __unicode__(self):
+        return self.name
+
+
+class Journal(models.Model):
+    name = models.CharField(max_length=100, blank=True, null=True)
+    entry = models.TextField()
 
     def __unicode__(self):
         return self.name

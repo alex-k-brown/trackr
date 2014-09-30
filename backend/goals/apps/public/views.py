@@ -15,3 +15,9 @@ class EditGoal(generics.RetrieveUpdateDestroyAPIView):
     model = Goal
     serializer_class = GoalSerializer
     queryset = Goal.objects.all()
+
+
+class Journal(generics.ListCreateAPIView):
+    model = Journal
+    serializer_class = JournalSerializer
+    queryset = Journal.objects.all()
