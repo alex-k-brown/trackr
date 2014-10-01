@@ -1,4 +1,11 @@
 db.sqlite3
 *.pyc
 staticfiles
-.idea/
+.idea
+node_modules/
+bower_components/
+npm-debug.log
+logs/*
+!.gitkeep
+tmp
+.DS_Store

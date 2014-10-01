@@ -6,10 +6,9 @@ describe('myApp.view2 module', function() {
 
   describe('view2 controller', function(){
 
-    it('should ....', inject(function($rootScope, $controller) {
+    it('should ....', inject(function($controller) {
       //spec body
-      var scope = $rootScope.$new();
-      var view2Ctrl = $controller('View2Ctrl', {$scope: scope});
+      var view2Ctrl = $controller('View2Ctrl');
       expect(view2Ctrl).toBeDefined();
     }));
 
