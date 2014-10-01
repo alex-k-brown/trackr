@@ -1,22 +1,15 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute', 'restangular'])
+angular.module('myApp.add-a-goal', ['ngRoute', 'restangular'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view2', {
-            templateUrl: 'view2/view2.html',
-            controller: 'View2Ctrl'
+        $routeProvider.when('/add-a-goal', {
+            templateUrl: 'add-a-goal/add-a-goal.html',
+            controller: 'AddAGoalCtrl'
         })
     }])
 
-.controller('View2Ctrl', ['$scope', 'Restangular', function($scope, Restangular) {
-        // GET a list of all goals
-        Restangular.all('goals').getList().then(function (goals) {
-            $scope.goals = goals;
-        })
-    }])
-
-    .controller('View2Ctrl', ['Restangular', '$scope', function (Restangular, $scope) {
+    .controller('AddAGoalCtrl', ['Restangular', '$scope', function (Restangular, $scope) {
         // GET a list of all timeFrames
         Restangular.all('goals').getList().then(function (timeFrames) {
             $scope.timeFrames = timeFrames;
