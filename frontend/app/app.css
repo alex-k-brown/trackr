@@ -29,3 +29,39 @@
   padding: 0;
 }
 
+.detail-body-color {
+    background-color: deepskyblue;
+}
+
+.detail-title {
+    font-family: 'Ubuntu';
+    font-size: 4em;
+    color: white
+}
+
+.detail-steps {
+    font-family: 'Ubuntu';
+    font-size: 2em;
+    color: white;
+}
+
+.detail-desc {
+    font-family: 'Ubuntu';
+    font-size: 1.5em;
+    color: darkblue;
+}
+
+.checkbox-label {
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
+
+}
+
+.checkbox label::before {
+    margin-top: 10px;
+}
+
+.checkbox label::after {
+    margin-top: 10px;
+}
