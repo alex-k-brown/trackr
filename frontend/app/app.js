@@ -9,6 +9,7 @@ angular.module('myApp', [
   'myApp.version',
   'restangular',
    'ui.bootstrap',
+   'myApp.acheivements',
    'd3'
     
 ]).
@@ -16,6 +17,10 @@ config(['$routeProvider', 'RestangularProvider', function($routeProvider, Restan
   $routeProvider.when('/add-a-goal', {
             templateUrl: 'add-a-goal/add-a-goal.html',
             controller: 'AddAGoalCtrl'
+        })
+  $routeProvider.when('/acheivements', {
+            templateUrl: 'acheivements/acheivements.html',
+            controller: 'acheivementsCtrl'
         })
   $routeProvider.otherwise({redirectTo: '/home'});
   RestangularProvider.setBaseUrl('http://localhost:8001');
