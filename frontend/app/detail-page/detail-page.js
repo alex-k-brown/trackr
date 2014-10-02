@@ -9,6 +9,9 @@ angular.module('myApp.detail-page', ['ngRoute'])
   });
 }])
 
-.controller('DetailPageCtrl', [function() {
+.controller('DetailPageCtrl', ["Restangular", function(Restangular) {
+         Restangular.one("goals", 1).get().then(function(goal){
+            $scope.goal = goal
+        });
 
 }]);
