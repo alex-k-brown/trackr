@@ -4,9 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
-  'myApp.add-a-goal',
-  'myApp.view1',
-  'myApp.view2',
+  'myApp.addAGoal',
   'myApp.d3graph',
   'myApp.version',
   'restangular',

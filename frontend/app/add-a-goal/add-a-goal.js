@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute', 'restangular'])
+angular.module('myApp.addAGoal', ['ngRoute', 'restangular'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/view2', {
@@ -10,7 +10,7 @@ angular.module('myApp.view2', ['ngRoute', 'restangular'])
     }])
 
 
-    .controller('View2Ctrl', ['Restangular', '$scope', '$routeParams', '$location', function (Restangular, $scope, $routeParams, $location) {
+    .controller('AddAGoalCtrl', ['Restangular', '$scope', '$routeParams', '$location', function (Restangular, $scope, $routeParams, $location) {
         $scope.goal = {
             childGoals: [],
             dueDate: new Date()
@@ -20,10 +20,10 @@ angular.module('myApp.view2', ['ngRoute', 'restangular'])
             $scope.timeFrame = timeFrames;
         })
 
-        $scope.calculateDueDate = function(timeFrame.days){
-
-            $scope.goal.dueDate.setDate($scope.goal.dueDate.getDate() + (timeFrame.days));
-        }
+//        $scope.calculateDueDate = function(timeFrame.days){
+//
+//            $scope.goal.dueDate.setDate($scope.goal.dueDate.getDate() + (timeFrame.days));
+//        }
 
 //        $scope.today = function () {
 //            $scope.dt = new Date();
