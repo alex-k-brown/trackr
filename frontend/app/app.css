@@ -30,25 +30,27 @@
 }
 
 .detail-body-color {
-    background-color: deepskyblue;
+    background-color: #00bfff;
 }
 
 .detail-title {
+    margin-top: 15px;
     font-family: 'Ubuntu';
-    font-size: 4em;
-    color: white
+    font-size: 3.5em;
+    color: white;
+    text-align: center;
 }
 
 .detail-steps {
     font-family: 'Ubuntu';
     font-size: 2em;
-    color: white;
+    color: #00bfff;
 }
 
 .detail-desc {
     font-family: 'Ubuntu';
     font-size: 1.5em;
-    color: darkblue;
+    color: orangered;
 }
 
 .checkbox-label {
@@ -60,8 +62,35 @@
 
 .checkbox label::before {
     margin-top: 10px;
+    border-width: 3px;
+    border-color: #00bfff
 }
 
 .checkbox label::after {
     margin-top: 10px;
 }
+
+.detail-box {
+    margin-top: -5px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.act-step {
+    margin-left: 10px;
+    color: orangered;
+    font-size: .85em;
+}
+
+.edit-step {
+    margin-left: 10px;
+    color: darkblue;
+    font-size: .85em;
+}
+
+.but-cust {
+    margin-top: 25px;
+
+}
+
