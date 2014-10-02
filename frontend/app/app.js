@@ -4,13 +4,13 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
-  'myApp.add-a-goal',
+  'myApp.addAGoal',
   'myApp.d3graph',
   'myApp.version',
   'restangular',
    'ui.bootstrap',
-   'myApp.acheivements',
-   'd3'
+   'd3',
+   'myApp.detail-page'
     
 ]).
 config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
@@ -23,6 +23,11 @@ config(['$routeProvider', 'RestangularProvider', function($routeProvider, Restan
             controller: 'acheivementsCtrl'
         })
   $routeProvider.otherwise({redirectTo: '/home'});
+   $routeProvider.when('/detail-page', {
+    templateUrl: 'detail-page/detail-page.html',
+    controller: 'DetailPageCtrl'
+  });
+  $routeProvider.otherwise({redirectTo: '/view1'});
   RestangularProvider.setBaseUrl('http://localhost:8001');
 }]);
 

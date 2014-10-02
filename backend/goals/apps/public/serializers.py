@@ -5,6 +5,8 @@ from rest_framework import serializers
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
+        depth = 1
+
 
 
 class TimeFrameSerializer(serializers.ModelSerializer):
