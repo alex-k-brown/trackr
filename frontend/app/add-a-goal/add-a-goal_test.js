@@ -6,9 +6,10 @@ describe('myApp.add-a-goal module', function() {
 
   describe('add-a-goal controller', function(){
 
-    it('should ....', inject(function($controller) {
+    it('should ....', inject(function($rootScope, $controller) {
       //spec body
-      var AddAGoalCtrl = $controller('AddAGoalCtrl');
+      var scope = $rootScope.$new();
+      var AddAGoalCtrl = $controller('AddAGoalCtrl', {$scope: scope});
       expect(AddAGoalCtrl).toBeDefined();
     }));
 
