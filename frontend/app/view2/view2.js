@@ -9,75 +9,87 @@ angular.module('myApp.view2', ['ngRoute', 'restangular'])
         })
     }])
 
-.controller('View2Ctrl', ['$scope', 'Restangular', function($scope, Restangular) {
-        // GET a list of all goals
-        Restangular.all('goals').getList().then(function (goals) {
-            $scope.goals = goals;
-        })
-    }])
 
-    .controller('View2Ctrl', ['Restangular', '$scope', function (Restangular, $scope) {
+    .controller('View2Ctrl', ['Restangular', '$scope', '$routeParams', '$location', function (Restangular, $scope, $routeParams, $location) {
+        $scope.goal = {
+            childGoals: [],
+            dueDate: new Date()
+        };
         // GET a list of all timeFrames
         Restangular.all('goals').getList().then(function (timeFrames) {
-            $scope.timeFrames = timeFrames;
+            $scope.timeFrame = timeFrames;
         })
 
+        $scope.calculateDueDate = function(timeFrame.days){
 
-            $scope.today = function () {
-                $scope.dt = new Date();
-            };
-            $scope.today();
-            0
-            $scope.clear = function () {
-                $scope.dt = null;
-            };
-            $scope.toggleMin = function () {
-                $scope.minDate = $scope.minDate ? null : new Date();
-            };
-            $scope.toggleMin();
+            $scope.goal.dueDate.setDate($scope.goal.dueDate.getDate() + (timeFrame.days));
+        }
 
-            $scope.open = function ($event) {
-                $event.preventDefault();
-                $event.stopPropagation();
+//        $scope.today = function () {
+//            $scope.dt = new Date();
+//        };
+//        $scope.today();//today
 
-                $scope.opened = true;
-            };
+//            $scope.clear = function () {
+//                $scope.dt = null;
+//            };
+//            $scope.toggleMin = function () {
+//                $scope.minDate = $scope.minDate ? null : new Date();
+//            };
+//            $scope.toggleMin();
+//
+//            $scope.open = function ($event) {
+//                $event.preventDefault();
+//                $event.stopPropagation();
+//
+//                $scope.opened = true;
+//            };
 
-            $scope.dateOptions = {
-                formatYear: 'yy',
-                startingDay: 1
-            };
-
-            $scope.initDate = new Date('2016-15-20');
-            $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-            $scope.format = $scope.formats[0];
-
-    }])
-
-    .controller('EditGoalCtrl', function ($scope, Restangular, $routeParams, $location) {
-        $scope.goalId = $routeParams.goalId;
-        Restangular.one('goals', $scope.goalId).customGET().then(function (data) {
-            $scope.goal = data;
-        });
-        $scope.updateGoal = function () {
-            Restangular.one('goals', $scope.goalId).customPUT($scope.goal).then(function (data) {
-                    $scope.status = "The recipe was successfully edited!";
-                    $scope.goal = data;
-                    $location.path('/goals');
-                }, function () {
-                    $scope.status = "The goal couldn't be saved";
-                }
-            )
-
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
         };
-        $scope.deleteGoal = function () {
-            if (confirm("Are you sure you want to delete this goal?")) {
-                Restangular.one('goals', $scope.goalId).customDELETE().then(function (data) {
+
+//            $scope.initDate = new Date('2016-15-20');
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
+        $scope.steps = []
+
+        $scope.addStep = function () {
+//            Restangular.one('goals', $scope.goalId).customPOST($scope.goal).then(function (data) {
+//                    $scope.status = "This step was successfully added";
+//                    $scope.goal = data;
+//                    $location.path('/goals');
+//                }, function () {
+//                    $scope.status = "This step couldn't be added";
+//                }
+//            )
+            $scope.goal.childGoals.push($scope.childGoal.step)
+            $scope.childGoal.step = ""
+        };
+
+        $scope.deleteStep = function () {
+            if (confirm("Are you sure you want to delete this step?")) {
+                Restangular.one('goals', $scope.goalId).customDELETE().then(function () {
                     $location.path('/goals');
                 }, function () {
-                    $scope.status = "The goal couldn't be deleted";
+                    $scope.status = "The step couldn't be deleted";
                 });
             }
 
         };
-    });
+
+        $scope.addGoal = function () {
+            Restangular.one('add-goal/').customPOST($scope.goal).then(function (data) {
+                    $scope.status = "Your goal was successfully added";
+                    $scope.goal = data;
+                    $location.path('/goals');
+                }, function () {
+                    $scope.status = "Your goal couldn't be saved";
+                }
+            )
+        }
+
+    }])
+
+

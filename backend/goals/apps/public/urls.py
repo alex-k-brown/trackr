@@ -8,6 +8,7 @@ urlpatterns = patterns(
     'apps.public.views',
 
     url(r'^goals/$', GoalList.as_view(), name='goal-list'),
+    url(r'^add-goal/$', add_goal, name='add-goal')
 
 
 )
