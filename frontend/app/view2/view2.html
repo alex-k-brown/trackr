@@ -13,30 +13,53 @@
         </textarea>
 
         <label>Goal Steps</label>
-        <input class="form-control"
 
-            <!--<pre>Selected date is: <em>{{ dt | date:'fullDate' }}</em></pre>-->
-            <label>Finish Date</label>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="input-group">
-                        <input type="text" class="form-control" datepicker-popup="{{ format }}" ng-model="dt"
-                               is-open="opened"
-                               min-date="minDate" max-date="'maxDate'" datepicker-options="dateOptions"
-                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
-              <span class="input-group-btn">
-                <button class="btn btn-default" ng-click="open($event)"><span
-                        class="glyphicon glyphicon-calendar"></span></button>
-              </span>
-                    </p>
-                </div>
+        <div class="row">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="childGoal.step">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="addStep()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+            </div> <!--/input-group -->
+       </div>
+        <div ng-repeat="goal in goal.childGoals">
+            {{ goal }}
+        <button class="btn btn-default" type="button" ng-click="deleteStep()">
+            <span class="glyphicon glyphicon-trash">
+            </span>
+        </button>
             </div>
 
+        <br>
+
+        <label>Goal Length</label>
+        <input class="form-control" type="text" ng-model="timeFrame.days" ng-change="calculateDueDate()"
+               placeholder="How many days do you want to work on your goal?">
+
+        <!--<pre>Selected date is: <em>{{ dt | date:'fullDate' }}</em></pre>
+        <label>Finish Date</label>
+
+        <div class="row">
+                <div class="col-md-6">-->
+        <label>Your End Date Is</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" ng-model="goal.dueDate"><!--datepicker-popup="{{ format }}"-->
+                               <!--is-open="opened"
+                               min-date="minDate" max-date="'maxDate'" datepicker-options="dateOptions"
+                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"-->
+              <!--<span class="input-group-btn">
+                <button class="btn btn-default" ng-click="open($event)"><span
+                        class="glyphicon glyphicon-calendar"></span></button>
+              </span>-->
+                    </p>
+                <!--</div>
+            </div>-->
 
 
-        <button class=" btn btn-sm btn-success" ng-click="updateGoal()">Save Changes</button>
-        <button class="btn btn-sm btn-danger" ng-click="deleteGoal()">Delete Goal</button>
+        <button class=" btn btn-sm btn-success" ng-click="addGoal()">Add Goal</button>
+        <!--<button class="btn btn-sm btn-danger" ng-click="deleteGoal()">Delete Goal</button>-->
 
     </div>
 </div>

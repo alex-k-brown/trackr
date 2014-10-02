@@ -12,6 +12,11 @@ class TimeFrameSerializer(serializers.ModelSerializer):
         model = TimeFrame
 
 
+class ChildGoalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChildGoal
+
+
 class JournalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Journal
