@@ -15,15 +15,21 @@ angular.module('myApp.addAGoal', ['ngRoute', 'restangular'])
             childGoals: [],
             dueDate: new Date()
         };
-        // GET a list of all timeFrames
-        Restangular.all('goals').getList().then(function (timeFrames) {
-            $scope.timeFrame = timeFrames;
-        })
+        // GET a list of all goals in the database
+        Restangular.all('goals').getList().then(function (goals) {
+            $scope.goals = goals;
+        });
 
-//        $scope.calculateDueDate = function(timeFrame.days){
-//
-//            $scope.goal.dueDate.setDate($scope.goal.dueDate.getDate() + (timeFrame.days));
-//        }
+//        $scope.calculateDueDate = function(){
+//            $scope.goal.dueDate.setDate($scope.goal.dueDate.getDate() + $scope.timeFrame.days);
+//       };
+
+        $scope.calculateDueDate = function (days) {
+            var result = new Date();
+            result.setDate(result.getDate() + days);
+            $scope.goal.dueDate = result;
+            return $scope.goal.dueDate;
+        };
 
 //        $scope.today = function () {
 //            $scope.dt = new Date();
@@ -53,7 +59,7 @@ angular.module('myApp.addAGoal', ['ngRoute', 'restangular'])
 //            $scope.initDate = new Date('2016-15-20');
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[0];
-        $scope.steps = []
+        $scope.steps = [];
 
         $scope.addStep = function () {
 //            Restangular.one('goals', $scope.goalId).customPOST($scope.goal).then(function (data) {
@@ -64,7 +70,7 @@ angular.module('myApp.addAGoal', ['ngRoute', 'restangular'])
 //                    $scope.status = "This step couldn't be added";
 //                }
 //            )
-            $scope.goal.childGoals.push($scope.childGoal.step)
+            $scope.goal.childGoals.push($scope.childGoal.step);
             $scope.childGoal.step = ""
         };
 
@@ -90,6 +96,6 @@ angular.module('myApp.addAGoal', ['ngRoute', 'restangular'])
             )
         }
 
-    }])
+    }]);
 
 

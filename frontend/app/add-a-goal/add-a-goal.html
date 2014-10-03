@@ -18,8 +18,8 @@
             <div class="input-group">
                 <input type="text" class="form-control" ng-model="childGoal.step">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="addStep()">
-                            <span class="glyphicon glyphicon-plus"></span>
+                        <button class="btn btn-info" type="button" ng-click="addStep()">Add A Step
+                            <!--<span class="glyphicon glyphicon-plus"></span>-->
                         </button>
                     </span>
             </div> <!--/input-group -->
@@ -35,7 +35,7 @@
         <br>
 
         <label>Goal Length</label>
-        <input class="form-control" type="text" ng-model="timeFrame.days" ng-change="calculateDueDate()"
+        <input class="form-control" type="text" ng-model="timeFrame.days" ng-change="calculateDueDate(timeFrame.days)"
                placeholder="How many days do you want to work on your goal?">
 
         <!--<pre>Selected date is: <em>{{ dt | date:'fullDate' }}</em></pre>
