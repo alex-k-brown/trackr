@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from serializers import *
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Create your views here.
 
@@ -16,6 +18,7 @@ class GoalDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GoalSerializer
     queryset = Goal.objects.all()
     # child_goals = serializers.SerializerMethodField('get_child_goals')
+
 
 class Journal(generics.ListCreateAPIView):
     model = Journal

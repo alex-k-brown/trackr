@@ -15,7 +15,7 @@ class Goal(models.Model):
 
 
 class TimeFrame(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=True, null=True)
     days = models.IntegerField(default=False)
 
     def __unicode__(self):
