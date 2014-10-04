@@ -19,14 +19,14 @@ class TimeFrame(models.Model):
     days = models.IntegerField(default=False)
 
     def __unicode__(self):
-        return self.name
+        return "[{}] {}".format(self.id, self.name)
 
 
 class ChildGoal(models.Model):
     step = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
     goal = models.ForeignKey('Goal')
-    timeFrame = models.ForeignKey('TimeFrame')
+    # timeFrame = models.ForeignKey('TimeFrame')
 
     def __unicode__(self):
         return self.step
