@@ -8,26 +8,24 @@ angular.module('myApp', [
   'myApp.d3graph',
   'myApp.version',
   'restangular',
-   'ui.bootstrap',
-   'd3',
-   'myApp.detail-page'
+  'ui.bootstrap',
+  'd3',
+  'myApp.detail-page',
+  'myApp.achievements'
+
     
 ]).
 config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
-  $routeProvider.when('/add-a-goal', {
-            templateUrl: 'add-a-goal/add-a-goal.html',
-            controller: 'AddAGoalCtrl'
-        })
-  $routeProvider.when('/acheivements', {
-            templateUrl: 'acheivements/acheivements.html',
-            controller: 'acheivementsCtrl'
-        })
+//  $routeProvider.when('/achievements', {
+//            templateUrl: 'achievements/achievements.html',
+//            controller: 'achievementsCtrl'
+//        })
+//  $routeProvider.otherwise({redirectTo: '/home'});
+//   $routeProvider.when('/detail-page', {
+//    templateUrl: 'detail-page/detail-page.html',
+//    controller: 'DetailPageCtrl'
+//  });
   $routeProvider.otherwise({redirectTo: '/home'});
-   $routeProvider.when('/detail-page', {
-    templateUrl: 'detail-page/detail-page.html',
-    controller: 'DetailPageCtrl'
-  });
-  $routeProvider.otherwise({redirectTo: '/view1'});
   RestangularProvider.setBaseUrl('http://localhost:8001');
 }]);
 

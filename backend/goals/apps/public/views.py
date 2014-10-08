@@ -19,15 +19,18 @@ class GoalDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Goal.objects.all()
     # child_goals = serializers.SerializerMethodField('get_child_goals')
 
+
 class ChildGoalDetail(generics.RetrieveUpdateDestroyAPIView):
     model = ChildGoal
     serializer_class = ChildGoalSerializer
     queryset = ChildGoal.objects.all()
 
+
 class ChildGoalList(generics.ListCreateAPIView):
     model = ChildGoal
     serializer_class = ChildGoalSerializer
     queryset = ChildGoal.objects.all()
+
 
 class Journal(generics.ListCreateAPIView):
     model = Journal

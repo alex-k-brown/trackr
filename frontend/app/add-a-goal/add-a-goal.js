@@ -3,9 +3,9 @@
 angular.module('myApp.addAGoal', ['ngRoute', 'restangular'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view2', {
-            templateUrl: 'view2/view2.html',
-            controller: 'View2Ctrl'
+        $routeProvider.when('/add-a-goal', {
+            templateUrl: 'add-a-goal/add-a-goal.html',
+            controller: 'AddAGoalCtrl'
         })
     }])
 
