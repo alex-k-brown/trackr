@@ -64,16 +64,21 @@
                 </div>
             </div>
             <div class="inactive-box">
-                <div class="detail-steps checkbox checkbox-primary checkbox-inline">
-                     <div ng-repeat="childGoal in goal.child_goals | filter: {status: false}">
-                             <p ng-show="!childGoal.hasOwnProperty('editing') || childGoal.editing == false">{{ childGoal.step }}</p>
-                             <p ng-show="childGoal.editing == true"><input ng-model="childGoal.step"/></p>
-                         <div style="float: right">
-                             <i ng-click="childGoal.status= true" class="act-step fa fa-rocket"></i>
-                             <i ng-click="childGoal.editing = true" class="edit-step fa fa-edit"></i>
-                             <i ng-click="deleteChild(childGoal)" class="trash-step fa fa-trash"></i>
-                         </div>
-                     </div>
+                <div class="detail-steps checkbox checkbox-primary">
+                    <div ng-repeat="childGoal in goal.child_goals | filter: {status: false}">
+                        <!--{{ childGoal.step }}-->
+                        <span >
+                            <div ng-show="!childGoal.hasOwnProperty('editing') || childGoal.editing == false">{{
+                                childGoal.step }}
+                            </div>
+                            <p ng-show="childGoal.editing == true"><input ng-model="childGoal.step"/></p>
+                            <div style="float: right; margin-top: -30px;">
+                                <i ng-click="childGoal.status= true" class="act-step fa fa-rocket"></i>
+                                <i ng-click="childGoal.editing = true" class="edit-step fa fa-edit"></i>
+                                <i ng-click="" class="trash-step fa fa-trash"></i>
+                            </div>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
