@@ -8,7 +8,6 @@ class GoalSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-
 class TimeFrameSerializer(serializers.ModelSerializer):
     class Meta:
         model = TimeFrame
