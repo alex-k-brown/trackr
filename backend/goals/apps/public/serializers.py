@@ -5,11 +5,17 @@ from rest_framework import serializers
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
+        depth = 1
 
 
 class TimeFrameSerializer(serializers.ModelSerializer):
     class Meta:
         model = TimeFrame
+
+
+class ChildGoalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChildGoal
 
 
 class JournalSerializer(serializers.ModelSerializer):
