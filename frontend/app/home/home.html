@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #4C4C4C; padding-bottom: 0em">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -10,8 +10,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="font-family: Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif" href="#">
-                <img src="img/icon-nav-bar.png" style="width: 1.5em"/>
+            <a class="navbar-brand" style="font-family: Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif; color: #27fdbd" href="#">
+                <img src="img/icon.png" style="width: 1.5em"/>
                 Trackr
             </a>
         </div>
@@ -19,13 +19,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="#" style="color: #DBDCDB">Home</a>
                 </li>
                 <li>
-                    <a href="#/add-a-goal">Add a Goal</a>
+                    <a href="#/add-a-goal" style="color: #DBDCDB">Add A Goal</a>
                 </li>
                 <li>
-                    <a href="#">Journal</a>
+                    <a href="#" style="color: #DBDCDB">Journal</a>
                 </li>
             </ul>
         </div>
@@ -38,38 +38,58 @@
 
 <div class="intro-header">
 
-    <div class="container">
+    <div class="container" style="background-image: "img/mountains.jpg">
 
-        <div class="row">
+        <div class="row" style="align-items: center">
             <div class="col-lg-12">
                 <div class="intro-message">
-                    <p style="font-family: 'Ubuntu', sans-serif; font-size: 9em;">
+                    <p style="font-family: 'Ubuntu', sans-serif; color: #27fdbd; font-size: 9em; text-align: center">
                         <img style="width: 1em" src="img/icon.png">
                         Trackr
                     </p>
 
-                    <p style="font-size: 2em">
-                        "There's nothing better than achieving your goals, whatever they might be" - Paloma Faith
+                    <p style="font-size: 3.5em; text-align: center; color: #ffffff; font-family: Shadows Into Light">
+                        "A goal without a plan is just a wish."
+                    </p>
+                    <p style="font-family: Shadows Into Light; color: #ffffff; font-size: 2em">
+                        -Antoine de Saint-Exupery
                     </p>
                     <!--<hr class="intro-divider">-->
                     <br>
-                    <ul class="list-inline intro-social-buttons" style="opacity: .5">
-                        <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-                                <span style="font-size: 2em">
-                                    <span style="color: #005A7D">Goal 1
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </span>
-                                    <div style="font-size: .5em">
-                                        <em>By XX/XX/XXXX</em>
-                                    </div>
-                                    <div style="font-size: .5em">
+
+                        <ul class="list-inline intro-social-buttons" style="opacity: .7; text-align: center">
+
+                                <li ng-repeat="goal in goals" style="padding: .5em">
+
+                                    <a href="#/detail-page/{{ goal.id }}" class="btn btn-default btn-lg">
+                                        <span style="font-size: 1.5em">
+                                            <span style="color: #00C9FC;">{{ goal.name }}
+                                                <i class="fa fa-play-circle-o"></i>
+                                            </span>
+                                            <div style="font-size: .7em">
+                                                <em>By {{ goal.duedate }}</em>
+                                            </div>
+                                    <!-- <div style="font-size: .5em">
                                         <em>XX%</em>
-                                    </div>
-                                </span>
+                                    </div> -->
+                                        </span>
+
+                                    </a>
+
+
+                                </li>
+                                <li>
+                                    <a href="#/add-a-goal" class="btn btn-default btn-lg">
+                                        <span style="font-size: 1.5em">
+                                            <i  style="color: #00C9FC" class="fa fa-plus"></i>
+                                            <span  style="color: #00C9FC"> Add A Goal</span>
+                                        </span>
                             </a>
                         </li>
-                        <li>
+
+                        </ul>
+                   <!-- </div>
+                        <!-- <li>
                             <a href="https://github.com/IronSummitMedia/startbootstrap"
                                class="btn btn-default btn-lg"></i>
                                 <span style="font-size: 2em">
@@ -100,24 +120,22 @@
                                 </span>
                             </a>
                         </li>
-                    </ul>
-                    <br>
-                    <br>
-                    <ul class="list-inline intro-social-buttons" style="opacity: .5">
+                    </ul> -->
+                   <!-- <ul class="list-inline intro-social-buttons" style="opacity: .5; text-align: center">
                         <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-                                <span style="font-size: 2em">
+                            <a href="#/add-a-goal" class="btn btn-default btn-lg">
+                                <span style="font-size: 1.5em">
                                     <i  style="color: #005A7D" class="fa fa-plus"></i>
                                     <span  style="color: #005A7D"> Add a Goal</span>
                                 </span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
 
-    </div>
+    </div> -->
     <!-- /.container -->
 
 </div>
@@ -135,62 +153,22 @@
                 <div class="clearfix"></div>
                 <h2 class="section-heading" style="font-family: Ubuntu, sans-serif; font-size: 4em; color: #005A7D">Active Steps</h2>
 
-                <div class="container col-lg-6"
-                    <p style="font-size: 2em">Active step detail.</p>
-                </div>
-                <div class="container col-lg-3"
-                    <p style="color: #98CEE4; font-size: 2em; font-weight: normal">XX/XX/XXXX</p>
-                </div>
-                <div class="container col-lg-3">
-                    <div class="checkbox-inline">
-                        <label style="font-weight: normal;font-size: 2em">
-                            <input type="checkbox">
-                            Complete
-                        </label>
-                    </div>
-                </div>
-                <br>
-                 <div class="container col-lg-6"
-                    <p style="font-size: 2em">
-                        Active step detail.
-                    </p>
-                </div>
-                <div class="container col-lg-3"
-                    <p style="color: #98CEE4; font-size: 2em; font-weight: normal">
-                        XX/XX/XXXX
-                    </p>
-                </div>
-                <div class="container col-lg-3">
-                    <div class="checkbox-inline">
-                        <label style="font-weight: normal;font-size: 2em">
-                            <input type="checkbox">
-                            Complete
-                        </label>
-                    </div>
-                </div>
-                <br>
-                 <div class="container col-lg-6"
-                    <p style="font-size: 2em">
-                        Active step detail.
-                    </p>
-                </div>
-                <div class="container col-lg-3"
-                    <p style="color: #98CEE4; font-size: 2em; font-weight: normal">
-                        XX/XX/XXXX
-                    </p>
-                </div>
-                <div class="container col-lg-3">
-                    <div class="checkbox-inline">
-                        <label style="font-weight: normal;font-size: 2em">
-                            <input type="checkbox">
-                            Complete
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                <img class="img-responsive" src="img/ipad.png" alt="">
-            </div> -->
+                <ul class="list-unstyled">
+                    <li ng-repeat="goal in goals">
+
+                        <p class="container col-lg-6" style="font-size: 2em; color: #2D9C75">{{ goal.name }}</p>
+                        <p class="container col-lg-3" style="font-size: 2em; font-weight: normal">{{ goal.duedate }}</p>
+                        <div class="container col-lg-3">
+                            <div class="checkbox-inline">
+                                <label style="font-weight: normal;font-size: 2em">
+                                    <input type="checkbox">
+                                    Complete
+                                </label>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
         </div>
 
     </div>
@@ -287,24 +265,24 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <ul class="list-inline">
+                <ul class="list-inline" style="color: #005A7D">
                     <li>
-                        <a href="#home">Home</a>
+                        <a href="#home" style="color: #005A7D">Home</a>
                     </li>
-                    <li class="footer-menu-divider">&sdot;</li>
+                    <li class="footer-menu-divider" style="color: #005A7D">&sdot;</li>
                     <li>
-                        <a href="#about">About</a>
+                        <a href="#/add-a-goal" style="color: #005A7D">Add A Goal</a>
                     </li>
-                    <li class="footer-menu-divider">&sdot;</li>
+                    <li class="footer-menu-divider" style="color: #005A7D">&sdot;</li>
                     <li>
-                        <a href="#services">Services</a>
+                        <a href="#/journal" style="color: #005A7D">Journal</a>
                     </li>
-                    <li class="footer-menu-divider">&sdot;</li>
+                    <!-- <li class="footer-menu-divider">&sdot;</li>
                     <li>
                         <a href="#contact">Contact</a>
-                    </li>
+                    </li> -->
                 </ul>
-                <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                <!-- <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p> -->
             </div>
         </div>
     </div>
