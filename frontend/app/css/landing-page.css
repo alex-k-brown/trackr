@@ -35,7 +35,6 @@ h6 {
     color: #f8f8f8;
     background: url(../img/mountains.jpg) no-repeat center center;
     background-size: cover;
-    height: 40em;
 }
 
 .intro-message {
@@ -73,11 +72,12 @@ h6 {
     ul.intro-social-buttons > li {
         display: block;
         margin-bottom: 20px;
-        padding: 0;
+        padding: 0px;
     }
 
     ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
     }
 
     .intro-divider {
@@ -168,3 +168,10 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+.add-a-goal-background {
+    background: #FFFF00 url(../img/snowy-mountains.jpg);
+    background-size: cover;
+    margin: 0 auto;
+}
+

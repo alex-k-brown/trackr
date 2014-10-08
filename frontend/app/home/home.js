@@ -9,6 +9,11 @@ angular.module('myApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', [function() {
+.controller('HomeCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
+
+        Restangular.all('goals').getList().then(function(goals) {
+            $scope.goals = goals;
+            $scope.orderProp = 'duedate';
+        })
 
 }]);
