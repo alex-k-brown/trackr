@@ -25,7 +25,7 @@ class TimeFrame(models.Model):
 class ChildGoal(models.Model):
     step = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
-    goal = models.ForeignKey('Goal')
+    goal = models.ForeignKey('Goal', related_name="children")
     timeFrame = models.ForeignKey('TimeFrame')
 
     def __unicode__(self):

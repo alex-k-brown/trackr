@@ -9,7 +9,7 @@ angular.module('myApp.detail-page', ['ngRoute'])
   });
 }])
 
-.controller('DetailPageCtrl', ["Restangular", function(Restangular) {
+.controller('DetailPageCtrl', ["Restangular", "$scope", function(Restangular, $scope) {
          Restangular.one("goals", 1).get().then(function(goal){
             $scope.goal = goal
         });

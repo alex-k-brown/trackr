@@ -40,42 +40,47 @@
     <div class="container">
         <div class="col-lg-6">
             <p class="detail-title">
-                Goal Name
+                {{ goal.name }}
             </p>
             <div class="detail-box">
                 <p class="detail-desc">
-                    This is a detailed description of your goal.  What you want to achieve and other
-                    blah blah blah blah blah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blah
+                    {{ goal.description }}
                 </p>
-
+                <a class="btn but-cust btn-success" href="#"><i class="fa fa-plus fa-lg"></i> Add Step</a>
+            </div>
+            <div class="active-box">
                 <div class="detail-steps checkbox checkbox-primary checkbox-inline">
-                    <input type="checkbox" id="checkbox1" class="checkbox-label"/>
-                    <label for="checkbox1">
-                        Step 1
-                    </label><a href="#"><i class="act-step fa fa-rocket"></i></a>
-                    <a href="#"><i class="edit-step fa fa-edit"></i></a><br>
-                    <input type="checkbox" id="checkbox2">
-                    <label for="checkbox2">
-                        Step 2
-                    </label><a href="#"><i class="act-step fa fa-rocket"></i></a>
-                    <a href="#"><i class="edit-step fa fa-edit"></i></a><br>
-                    <input type="checkbox" id="checkbox3">
-                    <label for="checkbox3">
-                        Step 3
-                    </label><a href="#"><i class="act-step fa fa-rocket"></i></a>
-                    <a href="#"><i class="edit-step fa fa-edit"></i></a><br>
-                    <input type="checkbox" id="checkbox4">
-                    <label for="checkbox4">
-                        Step 4
-                    </label><a href="#"><i class="act-step fa fa-rocket"></i></a>
-                    <a href="#"><i class="edit-step fa fa-edit"></i></a><br>
-                    <div ng-hide="checkbox"><a class="btn but-cust btn-success" href="#"><i class="fa fa-plus fa-lg"></i> Add</a></div>
-                    <div ng-show="checkbox"><a class="btn but-cust btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Delete</a></div>
+                     <div ng-repeat="childGoal in goal.child_goals | filter: {status: true}">
+                         <input type="checkbox" id="checkbox{{ childGoal.id }}" class="checkbox-label"/>
+                         <label for="checkbox{{ childGoal.id }}">
+                             {{ childGoal.step }}
+                         </label>
+                         <div class="" style="float: right">
+                             <i ng-click="childGoal.status = false" class="act-step fa fa-rocket"></i>
+                             <a href="#"><i class="edit-step fa fa-edit"></i></a>
+                             <a href="#"><i class="trash-step fa fa-trash"></i></a>
+                         </div>
+                     </div>
+                </div>
+            </div>
+            <div class="inactive-box">
+                <div class="detail-steps checkbox checkbox-primary checkbox-inline">
+                     <div ng-repeat="childGoal in goal.child_goals | filter: {status: false}">
+                             <p ng-show="!childGoal.hasOwnProperty('editing') || childGoal.editing == false">{{ childGoal.step }}</p>
+                             <p ng-show="childGoal.editing == true"><input ng-model="childGoal.step"/></p>
+                         <div style="float: right">
+                             <i ng-click="childGoal.status= true" class="act-step fa fa-rocket"></i>
+                             <i ng-click="childGoal.editing = true" class="edit-step fa fa-edit"></i>
+                             <i ng-click="deleteChild(childGoal)" class="trash-step fa fa-trash"></i>
+                         </div>
+                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <img class="pull-right" style="width: 5em, float: right" src="img/icon.png">
+            <div class="mountain">
+                <img style="" src="img/icon.png">
+            </div>
         </div>
 
     </div>
