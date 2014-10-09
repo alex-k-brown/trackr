@@ -16,15 +16,6 @@ angular.module('myApp', [
     
 ]).
 config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
-//  $routeProvider.when('/achievements', {
-//            templateUrl: 'achievements/achievements.html',
-//            controller: 'achievementsCtrl'
-//        })
-//  $routeProvider.otherwise({redirectTo: '/home'});
-//   $routeProvider.when('/detail-page', {
-//    templateUrl: 'detail-page/detail-page.html',
-//    controller: 'DetailPageCtrl'
-//  });
   $routeProvider.otherwise({redirectTo: '/home'});
   RestangularProvider.setBaseUrl('http://localhost:8001');
 }]);
