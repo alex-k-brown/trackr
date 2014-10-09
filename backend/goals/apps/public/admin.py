@@ -5,3 +5,4 @@ from models import *
 admin.site.register(Goal)
 admin.site.register(TimeFrame)
 admin.site.register(Journal)
+admin.site.register(ChildGoal)
