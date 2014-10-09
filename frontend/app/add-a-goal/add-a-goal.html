@@ -1,83 +1,97 @@
 <div class="add-a-goal-background">
+
     <br>
+
     <h2 style="font-family: ubuntu; font-size: 6em; text-align: center; color: #27fdbd">Add A Goal</h2>
 
     <div class="container">
         <div class="form-group">
-            <label style="color: #00C9FC; font-size: 2.5em">Goal Name</label>
-            <input class="form-control" style="opacity: .60; font-size: 1.5em" type="text" ng-model="goal.name" placeholder="What is your goal name?">
 
+            <!--NAME-->
+            <label style="color: #00C9FC; font-size: 2.5em">Goal Name</label>
+            <input class="form-control" style="opacity: .60; font-size: 1.5em" type="text" ng-model="goal.name"
+                   placeholder="What is your goal name?">
+
+            <!--DESCRIPTION-->
             <label style="color: #00C9FC; font-size: 2.5em">Description</label>
             <textarea style="opacity: .60; font-size: 1.5em"
-                type="text"
-                ng-model="goal.description"
-                placeholder="Please describe your goal"
-                class="form-control"
-                rows="5">
+                      type="text"
+                      ng-model="goal.description"
+                      placeholder="Please describe your goal"
+                      class="form-control"
+                      rows="5">
             </textarea>
 
-       
-            <label style="color: #00C9FC; font-size: 2.5em">Goal Steps</label>
-            <input style="opacity: .60; font-size: 1.5" class="form-control">
-
-                <!--<pre>Selected date is: <em>{{ dt | date:'fullDate' }}</em></pre>-->
-                <label style="color: #00C9FC; font-size: 2.5em">Finish Date</label>
-        <div class="row">
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="childGoal.step">
+            <!--STEP INPUT-->
+            <!--<div class="row">-->
+                <label style="color: #00C9FC; font-size: 2.5em">Goal Steps</label>
+                <div class=" row input-group">
+                    <input style="opacity: .60; font-size: 1.5em" type="text" class="form-control"
+                           ng-model="childGoal.step">
                     <span class="input-group-btn">
-                        <button class="btn btn-info" type="button" ng-click="addStep()">Add A Step
-                            <!--<span class="glyphicon glyphicon-plus"></span>-->
-                        </button>
+                        <button class="btn btn-info" type="button" ng-click="addStep()">Add A Step</button>
                     </span>
-            </div> <!--/input-group -->
-       </div>
-        <div ng-repeat="goal in goal.childGoals">
-            {{ goal }}
-        <button class="btn btn-default" type="button" ng-click="deleteStep($index)">
-            <span class="glyphicon glyphicon-trash">
-            </span>
-        </button>
+                </div>
             </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="input-group">
-                            <input style="opacity: .60; font-size: 1.5em" type="text" class="form-control" datepicker-popup="{{ format }}" ng-model="dt"
-                               is-open="opened"
-        <br>
 
-        <label>Goal Length</label>
-        <input class="form-control" type="text" ng-model="goal.timeFrame.days" ng-change="calculateDueDate(goal.timeFrame.days)"
-               placeholder="How many days do you want to work on your goal?">
+            <!--STEPS SHOWN-->
+            <div style="font-size: 1.5em" ng-repeat="goal in goal.childGoals">
+                <button class="btn btn-sm btn-danger" type="button" ng-click="deleteStep($index)">
+                    <span class="glyphicon glyphicon-trash">
+                    </span>
+                </button>
+                {{ goal }}
+                <br>
+            </div>
 
-        <!-- Commented out stuff for datepicker
+
+
+            <!--INPUT GOAL LENGTH-->
+            <label style="color: #00C9FC; font-size: 2.5em">Goal Length</label>
+            <input
+                    style="opacity: .60; font-size: 1.5em"
+                    class="form-control" type="text" ng-model="goal.timeFrame.days"
+                    ng-change="calculateDueDate(goal.timeFrame.days)"
+                    placeholder="How many days do you want to work on your goal?">
+
+            <!--FINISH DATE SHOWN-->
+            <label style="color: #00C9FC; font-size: 2.5em">Finish Date</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="input-group">
+                        <input style="font-size: 1.5em" type="text" class="form-control" ng-model="goal.dueDate">
+                </div>
+            </div>
+
+            <button class=" btn btn-md btn-success" ng-click="addGoal()">Add Goal</button>
+        </div>
+    </div>
+</div>
+
+<!-- Commented out stuff for datepicker
         <pre>Selected date is: <em>{{ dt | date:'fullDate' }}</em></pre>
 
 
         <div class="row">
                 <div class="col-md-6">-->
-        <label>Your End Date Is</label>
+<!--<label>Your End Date Is</label>
+
                     <p class="input-group">
-                        <input type="text" class="form-control" ng-model="goal.dueDate"><!--datepicker-popup="{{ format }}"-->
-                               <!--is-open="opened"
-                               min-date="minDate" max-date="'maxDate'" datepicker-options="dateOptions"
-                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"-->
-              <!--<span class="input-group-btn">
-                <button class="btn btn-default" ng-click="open($event)"><span
-                        class="glyphicon glyphicon-calendar"></span></button>
-              </span>
-                    </p>
-                </div>
-            </div>
+                        <input type="text" class="form-control"
+                               ng-model="goal.dueDate"><!--datepicker-popup="{{ format }}"-->
+<!--is-open="opened"
+min-date="minDate" max-date="'maxDate'" datepicker-options="dateOptions"
+date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"-->
+<!--<span class="input-group-btn">
+  <button class="btn btn-default" ng-click="open($event)"><span
+          class="glyphicon glyphicon-calendar"></span></button>
+</span>
+      </p>
+  </div>
+</div>-->
 
 
-        <button class=" btn btn-sm btn-success" ng-click="addGoal()">Add Goal</button>
+<!--<button class=" btn btn-lg" style="background-color: #2D9C75; color: #000000; opacity: .75" ng-click="updateGoal()">Save Changes <i class="fa fa-save"></i></button>
+<button class="btn btn-lg" style="background-color: #D53B3B; color: #000000; opacity: .75" ng-click="deleteGoal()">Delete Goal <i class="fa fa-trash-o"></i></button>-->
 
-            <button class=" btn btn-lg" style="background-color: #2D9C75; color: #000000; opacity: .75" ng-click="updateGoal()">Save Changes <i class="fa fa-save"></i></button>
-            <button class="btn btn-lg" style="background-color: #D53B3B; color: #000000; opacity: .75" ng-click="deleteGoal()">Delete Goal <i class="fa fa-trash-o"></i></button>
-
-        </div>
-    </div>
-
-</div>
