@@ -43,7 +43,7 @@
 
 .detail-steps {
     font-family: 'Ubuntu';
-    font-size: 2em;
+    font-size: 1.5em;
     color: #00bfff;
 }
 
@@ -57,22 +57,35 @@
     position: relative;
     vertical-align: middle;
     bottom: 1px;
-
 }
 
 .checkbox label::before {
-    margin-top: 10px;
+    margin-top: 6px;
     border-width: 3px;
-    border-color: #00bfff
+    border-color: #00bfff;
 }
 
 .checkbox label::after {
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .detail-box {
     margin-top: -5px;
     padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.active-box {
+    padding: 15px;
+    border: 5px solid lightgreen;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.inactive-box {
+    padding: 15px;
+    border: 5px solid red;
     background-color: white;
     border-radius: 15px;
 }
@@ -84,14 +97,24 @@
 }
 
 .edit-step {
-    margin-left: 10px;
+    margin-left: 5px;
     color: darkblue;
     font-size: .85em;
 }
 
-.but-cust {
-    margin-top: 25px;
+.trash-step {
+    margin-left: 5px;
+    color: #008000;
+    font-size: .85em;
+}
 
+.but-cust {
+    margin-top: 0px;
+}
+
+.mountain {
+    width: 5em;
+    color: white !important;
 }
 
 body {
