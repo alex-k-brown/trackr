@@ -3,10 +3,10 @@
 angular.module('myApp.journal', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-//  $routeProvider.when('/acheivements', {
-//    templateUrl: 'acheivements/acheivements.html',
-//    controller: 'acheivementsCtrl'
-//  });
+  $routeProvider.when('/journal', {
+    templateUrl: 'journal/journal.html',
+    controller: 'journalCtrl'
+  });
 }])
 
 .controller('journalCtrl', [function() {
