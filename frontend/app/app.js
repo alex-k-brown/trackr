@@ -12,7 +12,6 @@ angular.module('myApp', [
   'd3',
   'myApp.detail-page',
   'myApp.achievements'
-
     
 ]).
 config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
