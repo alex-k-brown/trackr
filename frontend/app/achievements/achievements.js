@@ -9,6 +9,12 @@ angular.module('myApp.achievements', ['ngRoute'])
         });
     }])
 
-    .controller('achievementsCtrl', [function () {
+    .controller('achievementsCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
+
+
+        Restangular.all('goals').getList().then(function(goals){
+            $scope.goals = goals;
+
+        });
 
     }]);

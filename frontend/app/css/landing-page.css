@@ -175,3 +175,7 @@ p.copyright {
     margin: 0 auto;
 }
 
+.achievements-background {
+    background: url(../img/achieve2.jpg);
+    background-size: 100%;
+}
