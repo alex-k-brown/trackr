@@ -45,6 +45,16 @@ angular.module('myApp.detail-page', ['ngRoute'])
 
                 childGoal.editing = false;
             }
+        };
+
+        $scope.activeGoalsEmpty = function(goal) {
+            if ($scope.hasOwnProperty('goal')) {
+                return $scope.goal.child_goals.filter(returnStatus).length;
+            }
+        };
+
+        var returnStatus = function(elem) {
+            return elem.status
         }
 
     }]);
