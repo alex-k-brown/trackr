@@ -27,6 +27,14 @@ angular.module('myApp.detail-page', ['ngRoute'])
             });
         }
 
+        $scope.completeChange = function (childGoal, complete) {
+            childGoal.complete = complete;
+
+            Restangular.one("child-goals", childGoal.id).customPUT(childGoal).then(function (chGoal) {
+                childGoal = chGoal;
+            });
+        }
+
         $scope.stepChange = function (keyEvent, childGoal) {
 
             if (keyEvent.which === 13) {
