@@ -9,12 +9,12 @@
 
             <!--NAME-->
             <label style="color: #00C9FC; font-size: 2.5em">Goal Name</label>
-            <input class="form-control" style="opacity: .60; font-size: 1.5em" type="text" ng-model="goal.name"
+            <input class="form-control" style="opacity: .80; font-size: 1.5em" type="text" ng-model="goal.name"
                    placeholder="What is your goal name?">
 
             <!--DESCRIPTION-->
             <label style="color: #00C9FC; font-size: 2.5em">Description</label>
-            <textarea style="opacity: .60; font-size: 1.5em"
+            <textarea style="opacity: .80; font-size: 1.5em"
                       type="text"
                       ng-model="goal.description"
                       placeholder="Please describe your goal"
@@ -26,7 +26,7 @@
             <!--<div class="row">-->
                 <label style="color: #00C9FC; font-size: 2.5em">Goal Steps</label>
                 <div class=" row input-group">
-                    <input style="opacity: .60; font-size: 1.5em" type="text" class="form-control"
+                    <input style="opacity: .80; font-size: 1.5em" type="text" class="form-control"
                            ng-model="childGoal.step">
                     <span class="input-group-btn">
                         <button class="btn btn-info" type="button" ng-click="addStep()">Add A Step</button>
@@ -50,7 +50,7 @@
             <!--INPUT GOAL LENGTH-->
             <label style="color: #00C9FC; font-size: 2.5em">Goal Length</label>
             <input
-                    style="opacity: .60; font-size: 1.5em"
+                    style="opacity: .80; font-size: 1.5em"
                     class="form-control" type="text" ng-model="goal.timeFrame.days"
                     ng-change="calculateDueDate(goal.timeFrame.days)"
                     placeholder="How many days do you want to work on your goal?">
@@ -60,11 +60,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="input-group">
-                        <input style="font-size: 1.5em" type="text" class="form-control" ng-model="goal.dueDate">
+                        <input style="opacity:.80; font-size: 1.5em" type="text" class="form-control" ng-model="goal.dueDate">
                 </div>
             </div>
 
             <button class=" btn btn-md btn-success" ng-click="addGoal()">Add Goal</button>
+            <br>
+            <br>
         </div>
     </div>
 </div>

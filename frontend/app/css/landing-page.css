@@ -169,6 +169,10 @@ p.copyright {
     margin: 15px 0 0;
 }
 
+body {
+    padding-top: 55px;
+}
+
 .add-a-goal-background {
     background: #FFFF00 url(../img/snowy-mountains.jpg);
     background-size: cover;
@@ -177,5 +181,6 @@ p.copyright {
 
 .achievements-background {
     background: url(../img/achieve2.jpg);
-    background-size: 100%;
+    background-size: cover;
 }
+
