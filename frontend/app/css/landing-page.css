@@ -175,3 +175,10 @@ p.copyright {
     margin: 0 auto;
 }
 
+.journal-background {
+    background: #FFFF00 url(../img/journal_mountain.jpg);
+    background-size: cover;
+    margin: 0 auto;
+}
+
+
