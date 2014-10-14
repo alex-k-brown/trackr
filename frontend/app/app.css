@@ -111,6 +111,12 @@
     font-size: .85em;
 }
 
+.undo-step {
+    margin-left: 5px;
+    color: #ff0000;
+    font-size: .85em;
+}
+
 .but-cust {
     margin-top: 0px;
 }

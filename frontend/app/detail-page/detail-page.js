@@ -18,6 +18,7 @@ angular.module('myApp.detail-page', ['ngRoute'])
 
         $scope.inactiveButtons = "../app/partials/inactive-buttons.html";
         $scope.activeButtons = "../app/partials/active-buttons.html";
+        $scope.completeButtons = "../app/partials/complete-buttons.html";
 
         $scope.statusChange = function (childGoal, status) {
             childGoal.status = status;
@@ -54,7 +55,27 @@ angular.module('myApp.detail-page', ['ngRoute'])
         };
 
         var returnStatus = function(elem) {
+            return elem.status && !elem.complete
+        }
+
+        $scope.inactiveGoalsEmpty = function(goal) {
+            if ($scope.hasOwnProperty('goal')) {
+                return $scope.goal.child_goals.filter(returnStatus2).length;
+            }
+        };
+
+        var returnStatus2 = function(elem) {
             return elem.status
+        }
+
+        $scope.completeGoalsEmpty = function(goal) {
+            if ($scope.hasOwnProperty('goal')) {
+                return $scope.goal.child_goals.filter(returnStatus3).length;
+            }
+        };
+
+        var returnStatus3 = function(elem) {
+            return elem.complete
         }
 
     }]);
