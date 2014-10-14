@@ -29,7 +29,7 @@ class GoalSerializer(serializers.ModelSerializer):
         dayspan = obj.timeFrame.days
         start = deadline - timedelta(days=dayspan)
         dayspassed = today - start
-        return round((float(dayspassed.days) / dayspan) * 100)
+        return {'percentage': round((float(dayspassed.days) / dayspan) * 100), 'dayspassed': dayspassed}
 
 
 class TimeFrameSerializer(serializers.ModelSerializer):
