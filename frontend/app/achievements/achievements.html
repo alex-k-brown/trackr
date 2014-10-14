@@ -9,12 +9,13 @@
             <br>
             <br>
         </div>
-        <div class="row text-center" >
+        <div class="row text-center">
             <div ng-repeat="goal in goals" class="col-md-4 col-sm-6">
                 <div class="thumbnail" style="opacity:.80; background-color:#B0E4E7; border:none">
                     <h2>{{ goal.name }}</h2>
                     <br>
                     <h4 class="text-left">Tasks Completed</h4>
+
                     <div class="progress">
                         <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
                              aria-valuenow="40"
@@ -23,14 +24,18 @@
                         </div>
                     </div>
                     <h4 class="text-left">Elapsed Time</h4>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+
+                    <div ng-hide="goal.goal_time.percentage >= 100" class="progress">
+                        <div class="progress-bar progress-bar-default progress-bar-striped active" role="progressbar"
                              aria-valuenow="40"
                              aria-valuemin="0" aria-valuemax="100"
-                             style="width: {{ goal.goal_time }}%">{{ goal.goal_time }}%
-
+                             style="width: {{ goal.goal_time.percentage }}%">{{ goal.goal_time.percentage }}%
                         </div>
                     </div>
+                    <div ng-show="goal.goal_time.percentage > 100"><span class="label label-danger"
+                        You're {{ goal.goal_time.dayspassed }} behind.
+                    </div>
+
                 </div>
             </div>
         </div>
