@@ -22,7 +22,7 @@ class Migration(SchemaMigration):
         # Adding model 'TimeFrame'
         db.create_table(u'public_timeframe', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
             ('days', self.gf('django.db.models.fields.IntegerField')(default=False)),
         ))
         db.send_create_signal(u'public', ['TimeFrame'])
@@ -33,7 +33,6 @@ class Migration(SchemaMigration):
             ('step', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('status', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('goal', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['public.Goal'])),
-            ('timeFrame', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['public.TimeFrame'])),
         ))
         db.send_create_signal(u'public', ['ChildGoal'])
 
@@ -66,8 +65,7 @@ class Migration(SchemaMigration):
             'goal': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['public.Goal']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'status': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'step': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'timeFrame': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['public.TimeFrame']"})
+            'step': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
         u'public.goal': {
             'Meta': {'object_name': 'Goal'},
@@ -88,7 +86,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'TimeFrame'},
             'days': ('django.db.models.fields.IntegerField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'})
         }
     }
 
