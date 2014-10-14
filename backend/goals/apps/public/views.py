@@ -38,30 +38,37 @@ class Journal(generics.ListCreateAPIView):
     queryset = Journal.objects.all()
 
 
-# @api_view(('POST',))
-
+@api_view(('POST',))
 def add_goal(request):
-    request.DATA.update(request.DATA['value'])
-    del request.DATA['value']
-
     errors = False
 
-    # if request.method == 'PUT':
-    #     response = ChildGoal.objects.get(pk=request.DATA['id'])
-    #     serializer = ChildGoalSerializer(response, data=request.DATA)
     if request.method == 'POST':
-        serializer = ChildGoalSerializer(data=request.DATA)
+        goal_serializer = GoalSerializer(data=request.DATA)
 
-    # if serializer.is_valid():
-    #     serializer.save()
-    #     question_id = serializer.data['id']
-    #
-    #     check_calculation(serializer.data['survey'], serializer.data['company'], serializer.data['question'])
-    # else:
-    #     errors = True
-    #     request.DATA['errors'] = serializer.errors
+        if goal_serializer.is_valid():
+            goal = goal_serializer.save()
+        else:
+            errors = goal_serializer.errors
+
+        if not errors:
+            child_goal_steps = request.DATA.get('childGoals')
+
+            for child_goal_step in child_goal_steps:
+                child_goal = {
+                    'step': child_goal_step,
+                    'goal': goal.id,
+                    'timeFrame': TimeFrame.objects.all()[0].id
+                }
+
+                child_goal_serializer = ChildGoalSerializer(data=child_goal)
+
+                if child_goal_serializer.is_valid():
+                    child_goal_serializer.save()
+                else:
+                    errors = child_goal_serializer.errors
+
     if errors:
         return Response(request.DATA, status=status.HTTP_400_BAD_REQUEST)
 
-        question = QuestionResponse.objects.get(pk=question_id)
-    return Response(QuestionResponseReadSerializer(question).data)
+    saved_goal = Goal.objects.get(pk=goal.id)
+    return Response(GoalSerializer(saved_goal).data)
