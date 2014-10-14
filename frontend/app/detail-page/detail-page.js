@@ -27,4 +27,16 @@ angular.module('myApp.detail-page', ['ngRoute'])
             });
         }
 
+        $scope.stepChange = function (keyEvent, childGoal) {
+
+            if (keyEvent.which === 13) {
+
+                Restangular.one("child-goals", childGoal.id).customPUT(childGoal).then(function (chGoal) {
+                    childGoal = chGoal;
+                });
+
+                childGoal.editing = false;
+            }
+        }
+
     }]);
