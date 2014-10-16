@@ -30,7 +30,7 @@ angular.module('myApp.detail-page', ['ngRoute'])
             };
 
             Restangular.one("child-goals/").customPOST(childGoal).then(function (step) {
-                goal.step = step;
+                goal.child_goals.push(step);
             });
             $scope.addStepEdit = false;
 
@@ -38,7 +38,14 @@ angular.module('myApp.detail-page', ['ngRoute'])
 
         Restangular.all("time-frame/").customGET().then(function (timeFrames) {
             $scope.timeFrames = timeFrames;
-        })
+        });
+
+        $scope.stepDelete = function (childGoal) {
+            Restangular.one("child-goals", childGoal.id).customDELETE().then(function() {
+                var index = $scope.goal.child_goals.indexOf(childGoal);
+                $scope.goal.child_goals.splice(index, 1);
+            })
+        };
 
 //        END OF SECTION I'M WORKING ON
 

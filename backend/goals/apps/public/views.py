@@ -19,7 +19,6 @@ class GoalDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Goal.objects.all()
 
 
-
 class ChildGoalDetail(generics.RetrieveUpdateDestroyAPIView):
     model = ChildGoal
     serializer_class = ChildGoalSerializer

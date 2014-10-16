@@ -12,13 +12,14 @@
                 <p class="detail-desc">
                     {{ goal.description }}
                 </p>
-                <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success" ><i class="fa fa-plus fa-lg"></i> Add Step</i>
+                <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success">
+                    <i class="fa fa-plus fa-lg"></i> Add Step</i>
 
                 <input ng-show="addStepEdit == true" ng-model="step" class="form-control"/>
-                <select ng-show="addStepEdit == true" ng-model="timeFrame" class="form-control" ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
-                <i ng-click="stepAdd(goal, step)" ng-show="addStepEdit == true" class="btn but-cust btn-success" ><i class="fa fa-plus fa-lg"></i> Save Step</i>
-
-
+                <select ng-show="addStepEdit == true" ng-model="timeFrame" class="form-control"
+                        ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
+                <i ng-click="stepAdd(goal, step)" ng-show="addStepEdit == true" class="btn but-cust btn-success">
+                    <i class="fa fa-plus fa-lg"></i> Save Step</i>
             </div>
 
             <!-------------------->
@@ -28,7 +29,8 @@
                  style="border-radius: 15px; margin-top: 10px; margin-bottom: 0px;"
                  ng-hide="activeGoalsEmpty() == 0">
                 <div class="panel-heading"
-                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center; font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
+                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;
+                     font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
                     Active
                     Steps
                 </div>
@@ -36,13 +38,15 @@
                     <div class="detail-steps ">
                         <div ng-repeat="childGoal in goal.child_goals | filter: {status: true, complete: false}">
                             <div ng-if="!childGoal.hasOwnProperty('editing') || childGoal.editing == false">
-                                <i ng-click="completeChange(childGoal, true)" tooltip-placement="left" tooltip="Goal Complete!"
+                                <i ng-click="completeChange(childGoal, true)" tooltip-placement="left"
+                                   tooltip="Goal Complete!"
                                    class="act-step fa fa-check-square-o"
                                    style="color: #008000; margin-left: 0px; margin-right: 5px"></i>
                                 {{ childGoal.step }}
                                 <ng-include src="activeButtons"></ng-include>
                             </div>
-                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step" ng-keypress="stepChange($event, childGoal)"/>
+                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step"
+                                                                            ng-keypress="stepChange($event, childGoal)"/>
                                 <ng-include src="activeButtons"></ng-include>
                             </div>
                         </div>
@@ -56,7 +60,8 @@
             <div ng-hide="inactiveGoalsEmpty() == goal.child_goals.length" class="panel panel-danger"
                  style="border-radius: 15px; margin-top: 10px; margin-bottom: 0px;">
                 <div class="panel-heading"
-                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center; font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
+                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;
+                     font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
                     Inactive
                     Steps
                 </div>
@@ -67,7 +72,8 @@
                                 {{ childGoal.step }}
                                 <ng-include src="inactiveButtons"></ng-include>
                             </div>
-                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step" ng-keypress="stepChange($event, childGoal)"/>
+                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step"
+                                                                            ng-keypress="stepChange($event, childGoal)"/>
                                 <ng-include src="inactiveButtons"></ng-include>
                             </div>
                         </div>
@@ -112,8 +118,10 @@
                 <marquee behavior="slide" scrollamount="4" direction="right"
                          style="position: relative; top: 50px; left: 0px; z-index: 3; margin-right: 70px;">
                     <img src="img/floatCloud.png" width="144" height="88" alt="Cloud"/></marquee>
-                <img src="img/pinetreeleft.png" height="100" style="position: relative; top: 270px; left: -20px; z-index: 2">
-                <img src="img/pinetreeright.png" height="120" style="position: relative; top: 260px; left: 340px; z-index: 2">
+                <img src="img/pinetreeleft.png" height="100"
+                     style="position: relative; top: 270px; left: -20px; z-index: 2">
+                <img src="img/pinetreeright.png" height="120"
+                     style="position: relative; top: 260px; left: 340px; z-index: 2">
 
             </div>
 
