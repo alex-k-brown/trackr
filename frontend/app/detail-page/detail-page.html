@@ -12,7 +12,13 @@
                 <p class="detail-desc">
                     {{ goal.description }}
                 </p>
-                <a class="btn but-cust btn-success" href="#"><i class="fa fa-plus fa-lg"></i> Add Step</a>
+                <i ng-click="addStepEdit = true;" class="btn but-cust btn-success" ><i class="fa fa-plus fa-lg"></i> Add Step</i>
+
+
+                <input ng-show="addStepEdit == true" ng-model="step" ng-keypress="stepAdd($event, goal, step)"/>
+
+
+
             </div>
 
             <!-------------------->
