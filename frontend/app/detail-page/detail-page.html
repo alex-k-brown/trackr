@@ -12,11 +12,11 @@
                 <p class="detail-desc">
                     {{ goal.description }}
                 </p>
-                <i ng-click="addStepEdit = true;" class="btn but-cust btn-success" ><i class="fa fa-plus fa-lg"></i> Add Step</i>
+                <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success" ><i class="fa fa-plus fa-lg"></i> Add Step</i>
 
-
-                <input ng-show="addStepEdit == true" ng-model="step" ng-keypress="stepAdd($event, goal, step)"/>
-
+                <input ng-show="addStepEdit == true" ng-model="step" class="form-control"/>
+                <select ng-show="addStepEdit == true" ng-model="timeFrame" class="form-control" ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
+                <i ng-click="stepAdd(goal, step)" ng-show="addStepEdit == true" class="btn but-cust btn-success" ><i class="fa fa-plus fa-lg"></i> Save Step</i>
 
 
             </div>

@@ -38,6 +38,12 @@ class Journal(generics.ListCreateAPIView):
     queryset = Journal.objects.all()
 
 
+class TimeFrameList(generics.ListAPIView):
+    model = TimeFrame
+    serializer_class = TimeFrameSerializer
+    queryset = TimeFrame.objects.all()
+
+
 @api_view(('POST',))
 def add_goal(request):
     errors = False

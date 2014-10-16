@@ -19,22 +19,26 @@ angular.module('myApp.detail-page', ['ngRoute'])
         $scope.activeButtons = "../app/partials/active-buttons.html";
         $scope.completeButtons = "../app/partials/complete-buttons.html";
 
+
 //        SECTION I'M WORKING ON TO ADD STEP
-        $scope.stepAdd = function (keyEvent, goal, step) {
-            if (keyEvent.which === 13) {
+        $scope.stepAdd = function (goal, step) {
 
-                var childGoal = {
-                    "goal": goal.id,
-                    "step": step,
-                    "timeFrame": 1
-                };
+            var childGoal = {
+                "goal": goal.id,
+                "step": step,
+                "timeFrame": $scope.timeFrame
+            };
 
-                Restangular.one("child-goals/").customPOST(childGoal).then(function (step) {
-                    goal.step = step;
-                });
-                goal.addStepEdit = false;
-            }
+            Restangular.one("child-goals/").customPOST(childGoal).then(function (step) {
+                goal.step = step;
+            });
+            $scope.addStepEdit = false;
+
         };
+
+        Restangular.all("time-frame/").customGET().then(function (timeFrames) {
+            $scope.timeFrames = timeFrames;
+        })
 
 //        END OF SECTION I'M WORKING ON
 
