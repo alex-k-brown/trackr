@@ -170,17 +170,22 @@ p.copyright {
 }
 
 body {
-    padding-top: 55px;
+    padding-top: 50px;
 }
 
 .add-a-goal-background {
     background: #FFFF00 url(../img/snowy-mountains.jpg);
     background-size: cover;
     margin: 0 auto;
+    height: 100vh;
 }
 
 .achievements-background {
     background: url(../img/achieve2.jpg);
     background-size: cover;
+    height: 100vh;
+
 }
+
+
 

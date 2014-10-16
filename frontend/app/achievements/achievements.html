@@ -1,11 +1,13 @@
 <div class="achievements-background">
-    <br>
-    <div class="container ">
-
+    <div class="container">
         <div class="row text-center">
+            <br>
+            <br>
+
             <h2 style="font-family: ubuntu; font-size: 6em; text-align: center; color: #27FDBD">Achievements</h2>
 
-            <label style="color: #00C9FC; font-size: 2.5em">How are you doing on your goals?</label>
+            <label style="color: #D7F3FA; font-size: 2.5em; font-family: Comic Sans, cursive">"All great achievements
+                require time." - Maya Angelou</label>
             <br>
             <br>
         </div>
@@ -23,7 +25,6 @@
                              aria-valuemin="0" aria-valuemax="100"
                              style="width: {{ goal.goal_progress.done }}%">{{ goal.goal_progress.done }}%
                         </div>
-
                     </div>
                     <div ng-show="goal.goal_progress.done >= 100"><span style="font-size:1.5em; font-family: ubuntu"
                                                                         class="label label-info" style="color: #00C9FC">
@@ -42,14 +43,15 @@
                             </div>
                         </div>
                     </div>
-                    <div ng-show="goal.goal_time.percentage > 100"><span style="font-size:1.5em; font-family: ubuntu"
-                                                                         class="label label-danger">
+                    <div ng-hide="goal.goal_progress.done >= 100">
+                        <div ng-show="goal.goal_time.percentage > 100"><span
+                                style="font-size:1.5em; font-family: ubuntu"
+                                class="label label-danger">
                         You Are {{ goal.goal_time.dayspassed.split(",")[0] }} behind!</span>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
 </div>
