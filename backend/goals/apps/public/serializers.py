@@ -21,6 +21,8 @@ class GoalSerializer(serializers.ModelSerializer):
         children = obj.children.all()
         completed = children.filter(status=True).count()
         total = children.count()
+        if total==0:
+            return 0
         return round((float(completed)/total) * 100)
 
     def get_goal_time(self, obj):

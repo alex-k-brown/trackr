@@ -47,6 +47,7 @@
     <li><a href="#/acheivements">acheivements</a></li>
   </ul>-->
 <!-- Navigation -->
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -83,6 +84,14 @@
     <!-- /.container -->
 </nav>
 
+<div class="first-circle"></div>
+
+ $('.first.circle').circleProgress({
+    value: 0.35,
+    animation: false,
+    fill: { gradient: ['#ff1e41', '#ff5f43'] }
+});
+
 <br>
 <br>
 <br>
@@ -109,6 +118,7 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/startbootstrap.js"></script>
+<script src="js/circle-progress.js"></script>
 
 
 <script src="app.js"></script>
@@ -121,6 +131,7 @@
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
+
 
 </body>
 </html>
