@@ -38,7 +38,7 @@
 
 <div class="intro-header">
 
-    <div class="container" style="background-image: "img/mountains.jpg">
+    <div class="container">
 
         <div class="row" style="align-items: center">
             <div class="col-lg-12">
@@ -61,27 +61,47 @@
 
                                 <li ng-repeat="goal in goals" style="padding: .5em">
 
-                                    <div class="btn" ng-class="{'btn-default': !goal.clicked, 'btn-primary': goal.clicked}" ng-click="activeButton(goal)">
-                                        <span style="font-size: 2em">
-                                            <a href="#/detail-page/{{goal.id}}" style="color: #00C9FC;">{{ goal.name }}
-                                            </a>
-                                            <div style="font-size: .7em">
-                                                <em>{{ goal.timeFrame.days }} days left</em>
-                                            </div>
-                                    <!-- <div style="font-size: .5em">
-                                        <em>XX%</em>
-                                    </div> -->
-                                        </span>
+                                    <div style="padding: .2em"
+                                         class="btn"
+                                         ng-class="{'btn-default': !goal.clicked, 'btn-primary': goal.clicked}"
+                                         ng-click="activeButton(goal)">
+                                        <span style="font-size: 2em; text-align: right">
 
+
+                                                <div class="container col-lg-7">
+                                                    <div>{{ goal.name }}</div>
+                                                </div>
+                                                <div class="container col-lg-7">
+                                                    <div style="font-size: .7em">
+                                                        <em>{{ goal.timeFrame.days }} days left</em>
+                                                    </div>
+                                                </div>
+                                                <div class="container col-lg-1">
+                                                    <a href="#/detail-page/{{goal.id}}" class="btn btn-info" style="padding: 0.4em; padding-bottom: .1em; vertical-align: text-top; border-width: .25em; border-color: #bdbdbd">
+                                                        <i  style="color: #2e2e2e; font-size: 3em" class="fa fa-tasks"></i>
+                                                    </a>
+                                                </div>
+
+                                        </span>
                                     </div>
 
 
                                 </li>
                                 <li>
-                                    <a href="#/add-a-goal" class="btn btn-default btn-lg">
-                                        <span style="font-size: 2em">
-                                            <i  style="color: #00C9FC" class="fa fa-plus"></i>
-                                            <span  style="color: #00C9FC"> Add A Goal</span>
+                                    <a href="#/add-a-goal" class="btn btn-info btn-lg" style="padding: .2em">
+                                        <span>
+                                            <div class="container col-lg-2">
+
+                                                    <i class="fa fa-plus-circle" style="font-size: 3em"></i>
+
+                                            </div>
+                                            <div class="container col-lg-1"></div>
+                                            <div class="container col-lg-7">
+                                                <div style="font-size: 1.5em"> Add A Goal</div>
+                                                <div>
+                                                    <em>Let's get started!</em>
+                                                </div>
+                                            </div>
                                         </span>
                             </a>
                         </li>
@@ -142,7 +162,7 @@
 
 <!-- Active Steps -->
 
-<div class="content-section-a">
+<div class="content-section-a" style="text-align: center">
 
     <div class="container">
 
@@ -150,10 +170,11 @@
             <div>
 
                 <div class="clearfix"></div>
-                <h2 class="section-heading" style="font-family: Ubuntu, sans-serif; font-size: 4em; color: #005A7D">Active Steps</h2>
-
+                <h2 class="section-heading" style="font-family: Ubuntu, sans-serif; font-size: 5em; color: #005A7D">Active Steps</h2>
+                <br>
                 <ul class="list-unstyled">
                     <li ng-show="anythingClicked" ng-repeat="goal in goals | filter: {clicked: true}">
+
                         <ng-include src="activeGoals"></ng-include>
 
                     </li>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="js/circle-progress.js"></script>
+
+Test
+
+<div id="circle"></div>
+
+<script>
+    $('#circle').circleProgress({
+        value: 0.75,
+        size: 80,
+        fill: {
+            gradient: ["red", "orange"]
+        }
+    });
+</script>
+
+</body>
+</html>
