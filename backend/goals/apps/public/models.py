@@ -32,10 +32,12 @@ class ChildGoal(models.Model):
         return self.step
 
 
-class Journal(models.Model):
-    name = models.CharField(max_length=100, blank=True, null=True)
+class JournalEntry(models.Model):
+    topic = models.CharField(max_length=100, blank=True, null=True)
     entry = models.TextField()
 
     def __unicode__(self):
-        return self.name
+        return self.topic
+
+
 
