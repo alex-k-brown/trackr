@@ -14,7 +14,8 @@
     <div class="container">
         <div class="row" style="margin-top: -60px;">
             <div class="col-lg-4"></div>
-            <div class="col-sm-4" >
+            <div class="col-sm-4">
+
 
                 <input type="text" class="form-control text-center"
                        placeholder="Journal Topic"/><br>
@@ -22,30 +23,40 @@
             <div class="col-lg-4"></div>
         </div>
 
-        <div class="row" style="margin-top: 50px;">
+        <div class="row" style="margin-right: 60px; margin-left: 60px">
             <div class="col-4"></div>
             <div class="col-4">
 
-                <textarea type="text"
-                          placeholder="Did you accomplish your goal today and how did it feel?           If you didn't accomplish your goal today, what can you do tomorrow to make sure you succeed?"
+                <textarea type="text" style="margin-right: 40px"
+                          placeholder="Did you accomplish your goal today and how did it feel?     If you didn't accomplish your goal today, what can you do tomorrow to help you succeed?"
                           class="form-control" rows="5"></textarea><br>
             </div>
             <div class="col-4"></div>
         </div>
 
-
-        <button class="btn btn-info"><i class="fa fa-image"></i> Add a Picture</button>
+        <div class="row" style="margin-right: 60px; margin-left: 60px">
 
         <button class="btn btn-success"><i class="fa fa-save"></i> Save</button>
 
-        <button class="btn btn-default"><i class="fa fa-edit"></i> Edit</button>
+        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
 
-        <button class="btn button-green"><i class="glyphicon glyphicon-thumbs-up"></i> Feeling Good!</button>
+        <button class="btn btn-info"><i class="fa fa-image"></i> Add a Picture</button>
 
-        <button class="btn btn-default"><i class="glyphicon glyphicon-thumbs-down"></i> Feeling Down</button>
+        <button class="btn btn-warning"><i class="glyphicon glyphicon-thumbs-up"></i> Feeling Good!</button>
+
+        <button class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-down"></i> Feeling Down</button>
         <br>
+            </div>
 
         <p>&nbsp</p>
+
+
+
+        <div data-ng-repeat="journalEntry in journalEntries">
+            <h3>{{ journalEntry.topic }}</h3>
+            <p>{{ journalEntry.entry }}</p>
+
+        </div>
     </div>
 
 

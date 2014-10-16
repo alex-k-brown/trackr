@@ -2,39 +2,18 @@
 
 angular.module('myApp.journal', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/journal', {
-    templateUrl: 'journal/journal.html',
-    controller: 'journalCtrl'
-  });
-}])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/journal', {
+            templateUrl: 'journal/journal.html',
+            controller: 'journalCtrl'
+        });
+    }])
 
-.controller('journalCtrl', [function() {
-angular.module('ui.bootstrap.demo').controller('AccordionDemoCtrl', function ($scope) {
-  $scope.oneAtATime = true;
 
-  $scope.groups = [
-    {
-      title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
-    },
-    {
-      title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
-    }
-  ];
+    .controller('journalCtrl', ["Restangular", "$scope", function (Restangular, $scope) {
+         Restangular.all('journal-entries').getList().then(function(journalEntries) {
+            $scope.journalEntries = journalEntries;
 
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
-
-  $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
-});
-}]);
+        })
+    }]);
 
