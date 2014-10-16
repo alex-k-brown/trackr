@@ -22,7 +22,7 @@
    
      
   <link rel="stylesheet" href="app.css"/>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
     <link rel="stylesheet" href="css/landing-page.css">
     <!--<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 
     <link rel="stylesheet" href="app.css"/>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
           type="text/css">
@@ -69,13 +69,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#/home">Home</a>
+                    <a href="#/home" style="font-family: Oldtown, fantasy; color: #00C9FC">Home</a>
                 </li>
                 <li>
-                    <a href="#/add-a-goal">Add a Goal</a>
+                    <a href="#/add-a-goal" style="font-family: Oldtown, fantasy; color: #00C9FC">Add a Goal</a>
                 </li>
                 <li>
-                    <a href="#/achievements">Achievements</a>
+                    <a href="#/achievements" style="font-family: Oldtown, fantasy; color: #00C9FC">Achievements</a>
+                </li>
+                <li>
+                    <a href="#/detail-page" style="font-family: Oldtown, fantasy; color: #00C9FC">Goal Details</a>
                 </li>
             </ul>
         </div>
@@ -83,14 +86,6 @@
     </div>
     <!-- /.container -->
 </nav>
-
-<div class="first-circle"></div>
-
- $('.first.circle').circleProgress({
-    value: 0.35,
-    animation: false,
-    fill: { gradient: ['#ff1e41', '#ff5f43'] }
-});
 
 <br>
 <br>
@@ -102,8 +97,12 @@
 
 <div ng-view></div>
 
+<div class="footer navbar-fixed-bottom">
+
+
 <!--<div>Angular seed app: v<span app-version></span></div>-->
-<p class="copyright text-muted small">Copyright &copy; Trackr 2014. All Rights Reserved</p>
+<p class="text-center copyright text-muted small" style="background-color: white">Copyright &copy; Coding Campus Fall 2014. All Rights Reserved</p>
+</div>
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -118,7 +117,6 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/startbootstrap.js"></script>
-<script src="js/circle-progress.js"></script>
 
 
 <script src="app.js"></script>
@@ -131,7 +129,6 @@
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
-
 
 </body>
 </html>

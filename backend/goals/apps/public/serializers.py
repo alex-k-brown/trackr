@@ -19,11 +19,11 @@ class GoalSerializer(serializers.ModelSerializer):
 
     def get_goal_progress(self, obj):
         children = obj.children.all()
-        completed = children.filter(status=True).count()
+        completed = children.filter(complete=True).count()
         total = children.count()
         if total==0:
-            return 0
-        return round((float(completed)/total) * 100)
+            return 0       
+        return {'done': round((float(completed)/total) * 100), 'total': total}
 
     def get_goal_time(self, obj):
         today = date.today()
