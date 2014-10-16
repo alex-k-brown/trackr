@@ -19,7 +19,6 @@ class GoalDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Goal.objects.all()
 
 
-
 class ChildGoalDetail(generics.RetrieveUpdateDestroyAPIView):
     model = ChildGoal
     serializer_class = ChildGoalSerializer
@@ -36,6 +35,12 @@ class Journal(generics.ListCreateAPIView):
     model = Journal
     serializer_class = JournalSerializer
     queryset = Journal.objects.all()
+
+
+class TimeFrameList(generics.ListAPIView):
+    model = TimeFrame
+    serializer_class = TimeFrameSerializer
+    queryset = TimeFrame.objects.all()
 
 
 @api_view(('POST',))

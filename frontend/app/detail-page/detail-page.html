@@ -5,56 +5,110 @@
                 {{ goal.name }}
             </p>
 
+            <!-------------->
+            <!--DETAIL BOX-->
+            <!-------------->
             <div class="detail-box">
                 <p class="detail-desc">
                     {{ goal.description }}
                 </p>
-                <a class="btn but-cust btn-success" href="#"><i class="fa fa-plus fa-lg"></i> Add Step</a>
+                <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success">
+                    <i class="fa fa-plus fa-lg"></i> Add Step</i>
+
+                <input ng-show="addStepEdit == true" ng-model="step" class="form-control"/>
+                <select ng-show="addStepEdit == true" ng-model="timeFrame" class="form-control"
+                        ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
+                <i ng-click="stepAdd(goal, step)" ng-show="addStepEdit == true" class="btn but-cust btn-success">
+                    <i class="fa fa-plus fa-lg"></i> Save Step</i>
             </div>
-            <div class="panel panel-success" style="border-radius: 15px; margin-top: 10px;">
+
+            <!-------------------->
+            <!--ACTIVE STEPS BOX-->
+            <!-------------------->
+            <div class="panel panel-success"
+                 style="border-radius: 15px; margin-top: 10px; margin-bottom: 0px;"
+                 ng-hide="activeGoalsEmpty() == 0">
                 <div class="panel-heading"
-                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center; font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
+                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;
+                     font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
                     Active
                     Steps
                 </div>
                 <div class="panel-body">
                     <div class="detail-steps ">
-                        <div ng-repeat="childGoal in goal.child_goals | filter: {status: true}">
-                            <div ng-if="!childGoal.hasOwnProperty('editing') || childGoal.editing == false || childGoal.complete == false">
-                                <i ng-click="completeChange(childGoal, true)" tooltip-placement="left" tooltip="Goal Complete!"
-                                   class="act-step fa fa-trophy"
-                                   style="color: orange; margin-left: 0px; margin-right: 5px"></i>
+                        <div ng-repeat="childGoal in goal.child_goals | filter: {status: true, complete: false}">
+                            <div ng-if="!childGoal.hasOwnProperty('editing') || childGoal.editing == false">
+                                <i ng-click="completeChange(childGoal, true)" tooltip-placement="left"
+                                   tooltip="Goal Complete!"
+                                   class="act-step fa fa-check-square-o"
+                                   style="color: #008000; margin-left: 0px; margin-right: 5px"></i>
                                 {{ childGoal.step }}
                                 <ng-include src="activeButtons"></ng-include>
                             </div>
-                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step" ng-keypress="stepChange($event, childGoal)"/>
+                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step"
+                                                                            ng-keypress="stepChange($event, childGoal)"/>
                                 <ng-include src="activeButtons"></ng-include>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="panel panel-danger" style="border-radius: 15px; margin-top: -10px">
+
+            <!---------------------->
+            <!--INACTIVE STEPS BOX-->
+            <!---------------------->
+            <div ng-hide="inactiveGoalsEmpty() == goal.child_goals.length" class="panel panel-danger"
+                 style="border-radius: 15px; margin-top: 10px; margin-bottom: 0px;">
                 <div class="panel-heading"
-                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center; font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
+                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;
+                     font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
                     Inactive
                     Steps
                 </div>
                 <div class="panel-body">
                     <div class="detail-steps ">
-                        <div ng-repeat="childGoal in goal.child_goals | filter: {status: false}">
-                            <div ng-if="!childGoal.hasOwnProperty('editing') || childGoal.editing == false || childGoal.complete == false">
+                        <div ng-repeat="childGoal in goal.child_goals | filter: {status: false, complete: false}">
+                            <div ng-if="!childGoal.hasOwnProperty('editing') || childGoal.editing == false">
                                 {{ childGoal.step }}
                                 <ng-include src="inactiveButtons"></ng-include>
                             </div>
-                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step" ng-keypress="stepChange($event, childGoal)"/>
+                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step"
+                                                                            ng-keypress="stepChange($event, childGoal)"/>
                                 <ng-include src="inactiveButtons"></ng-include>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!----------------------->
+            <!--COMPLETED STEPS BOX-->
+            <!----------------------->
+            <div ng-hide="completeGoalsEmpty() == 0" class="panel panel-warning"
+                 style="border-radius: 15px; margin-top: 10px">
+                <div class="panel-heading"
+                     style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;
+                     font-size: 1.5em; font-family: Ubuntu; padding-top: 2px; padding-bottom: 2px">
+                    <i class="act-step fa fa-trophy" style="color: orange; margin-left: 0px; margin-right: 5px"></i>
+                    Completed
+                    Steps
+                    <i class="act-step fa fa-trophy" style="color: orange; margin-left: 5px; margin-right: 0px"></i>
+                </div>
+                <div class="panel-body">
+                    <div class="detail-steps ">
+                        <div ng-repeat="childGoal in goal.child_goals | filter: {complete: true}">
+                            {{ childGoal.step }}
+                            <ng-include src="completeButtons"></ng-include>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <!-------------------->
+        <!--MOUNTAIN GRAPHIC-->
+        <!-------------------->
         <div class="col-lg-6" style="min-height: 520px">
             <marquee behavior="slide" scrollamount="3" direction="left"
                      style="margin-bottom: -200px; margin-left: 45px;">
@@ -64,8 +118,10 @@
                 <marquee behavior="slide" scrollamount="4" direction="right"
                          style="position: relative; top: 50px; left: 0px; z-index: 3; margin-right: 70px;">
                     <img src="img/floatCloud.png" width="144" height="88" alt="Cloud"/></marquee>
-                <img src="img/pinetreeleft.png" height="100" style="position: relative; top: 270px; left: -20px; z-index: 2">
-                <img src="img/pinetreeright.png" height="120" style="position: relative; top: 260px; left: 340px; z-index: 2">
+                <img src="img/pinetreeleft.png" height="100"
+                     style="position: relative; top: 270px; left: -20px; z-index: 2">
+                <img src="img/pinetreeright.png" height="120"
+                     style="position: relative; top: 260px; left: 340px; z-index: 2">
 
             </div>
 

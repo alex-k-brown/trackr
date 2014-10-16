@@ -76,6 +76,7 @@
     padding: 15px;
     background-color: white;
     border-radius: 15px;
+    margin-bottom: 0px;
 }
 
 .active-box {
@@ -107,6 +108,12 @@
 .trash-step {
     margin-left: 5px;
     color: #008000;
+    font-size: .85em;
+}
+
+.undo-step {
+    margin-left: 5px;
+    color: #ff0000;
     font-size: .85em;
 }
 
