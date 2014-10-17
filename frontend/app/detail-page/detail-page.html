@@ -1,6 +1,6 @@
 <div class="detail-body-color">
     <div class="container">
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="margin-bottom: 30px;">
             <p class="detail-title">
                 {{ goal.name }}
             </p>
@@ -14,14 +14,22 @@
                 </p>
                 <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success">
                     <i class="fa fa-plus fa-lg"></i> Add Step</i>
+
                 <div align="center" ng-show="addStepEdit == true">
-                    <input ng-model="step" placeholder="Enter Step Description" maxlength="45" class="form-control" style="max-width: 400px"/>
-                    <label style="margin-top: 10px; margin-right: 150px">Select Time Frame</label><div class="input-group" style="margin-top: 0px; max-width: 400px">
+                    <input ng-model="step" placeholder="Enter Step Description" maxlength="45" class="form-control"
+                           style="max-width: 400px"/>
+                    <label style="margin-top: 10px; margin-right: 150px">Select Time Frame</label>
+
+                    <div class="input-group" style="margin-top: 0px; max-width: 400px">
                         <select ng-model="timeFrame" class="form-control"
                                 ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
                         <span class="input-group-btn">
-                            <button class="btn btn-success but-cust" type="button" ng-click="stepAdd(goal, step)">Save Step</button>
-                            <button class="btn btn-danger but-cust" type="button" ng-click="addStepEdit = false">Cancel</button>
+                            <button class="btn btn-success but-cust" type="button" ng-click="stepAdd(goal, step)">Save
+                                Step
+                            </button>
+                            <button class="btn btn-danger but-cust" type="button" ng-click="addStepEdit = false">
+                                Cancel
+                            </button>
                         </span>
                     </div>
                 </div>
@@ -50,8 +58,8 @@
                                 {{ childGoal.step }}
                                 <ng-include src="activeButtons"></ng-include>
                             </div>
-                            <div ng-show="childGoal.editing == true"><input ng-model="childGoal.step"
-                                                                            ng-keypress="stepChange($event, childGoal)"/>
+                            <div ng-show="childGoal.editing == true">
+                                <input ng-model="childGoal.step" ng-keypress="stepChange($event, childGoal)"/>
                                 <ng-include src="activeButtons"></ng-include>
                             </div>
                         </div>
@@ -126,10 +134,10 @@
                     <img src="img/floatCloud.png" width="216" height="132" alt="Cloud"/></marquee>
                 <marquee behavior="scroll" scrollamount="4" direction="left" loop="1"
                          style="position: relative; top: 0px; left: 0px; z-index: 3; margin-left: -30px; margin-right: -500px">
-                    <img src="http://www9l.incredimail.com/scache/im//gallery/content/200806181240/content_11230_prev.gif" width="80" alt="Geese"/></marquee>
+                    <img src="img/geese.gif" width="80" alt="Geese"/></marquee>
                 <marquee behavior="scroll" scrollamount="5" direction="right" loop="1"
                          style="position: relative; top: 300px; left: 0px; z-index: 2; margin-left: 0px; margin-right: -5px">
-                    <img src="https://slm-assets3.secondlife.com/assets/3908782/original/deer2r.gif?1310791673" width="50" alt="deer"/></marquee>
+                    <img src="img/deer.gif" width="50" alt="deer"/></marquee>
                 <img src="img/pinetreeleft.png" height="100"
                      style="position: relative; top: 190px; left: -20px; z-index: 6">
                 <img src="img/pinetreeright.png" height="120"
