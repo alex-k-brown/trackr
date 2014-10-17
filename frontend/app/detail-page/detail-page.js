@@ -67,7 +67,8 @@ angular.module('myApp.detail-page', ['ngRoute'])
             Restangular.one("child-goals", childGoal.id).customPUT(childGoal).then(function (chGoal) {
                 childGoal = chGoal;
             });
-        }
+
+        };
 
         $scope.stepChange = function (keyEvent, childGoal) {
 
