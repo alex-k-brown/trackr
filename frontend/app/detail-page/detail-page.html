@@ -14,12 +14,16 @@
                 </p>
                 <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success">
                     <i class="fa fa-plus fa-lg"></i> Add Step</i>
-
-                <input ng-show="addStepEdit == true" ng-model="step" class="form-control"/>
-                <select ng-show="addStepEdit == true" ng-model="timeFrame" class="form-control"
-                        ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
-                <i ng-click="stepAdd(goal, step)" ng-show="addStepEdit == true" class="btn but-cust btn-success">
-                    <i class="fa fa-plus fa-lg"></i> Save Step</i>
+                <div align="center" ng-show="addStepEdit == true">
+                    <input ng-model="step" placeholder="Enter Step Description" maxlength="45" class="form-control" style="max-width: 400px"/>
+                    <div class="input-group" style="margin-top: 5px; max-width: 400px">
+                        <select ng-model="timeFrame" class="form-control"
+                                ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
+                        <span class="input-group-btn">
+                            <button class="btn btn-success but-cust" type="button" ng-click="stepAdd(goal, step)">Save Step</button>
+                        </span>
+                    </div>
+                </div>
             </div>
 
             <!-------------------->
@@ -110,18 +114,25 @@
         <!--MOUNTAIN GRAPHIC-->
         <!-------------------->
         <div class="col-lg-6" style="min-height: 520px">
-            <marquee behavior="slide" scrollamount="3" direction="left"
-                     style="margin-bottom: -200px; margin-left: 45px;">
-                <img src="http://pngimg.com/upload/cloud_PNG15.png" width="144" height="88" alt="Cloud"/></marquee>
+
             <div style="position: relative; left: 0; top: 0;">
-                <img src="img/white-mountain.png" style="position: absolute; top: 0px; left: 0px; z-index: 1;">
-                <marquee behavior="slide" scrollamount="4" direction="right"
-                         style="position: relative; top: 50px; left: 0px; z-index: 3; margin-right: 70px;">
+                <img src="img/white-mountain.png" style="position: absolute; top: 70px; left: 0px; z-index: 1;">
+                <marquee behavior="slide" scrollamount="1.5" direction="left"
+                         style="position: relative; margin-bottom: -200px; margin-left: 45px;">
                     <img src="img/floatCloud.png" width="144" height="88" alt="Cloud"/></marquee>
+                <marquee behavior="slide" scrollamount="2" direction="right"
+                         style="position: relative; top: 50px; left: 0px; z-index: 4; margin-left: -30px; margin-right: 70px;">
+                    <img src="img/floatCloud.png" width="144" height="88" alt="Cloud"/></marquee>
+                <marquee behavior="scroll" scrollamount="3" direction="left" loop="1"
+                         style="position: relative; top: 0px; left: 0px; z-index: 3; margin-left: -30px; margin-right: -500px">
+                    <img src="http://www9l.incredimail.com/scache/im//gallery/content/200806181240/content_11230_prev.gif" width="80" alt="Geese"/></marquee>
+                <marquee behavior="scroll" scrollamount="5" direction="right" loop="1"
+                         style="position: relative; top: 345px; left: 0px; z-index: 2; margin-left: 0px; margin-right: -5px">
+                    <img src="https://slm-assets3.secondlife.com/assets/3908782/original/deer2r.gif?1310791673" width="50" alt="deer"/></marquee>
                 <img src="img/pinetreeleft.png" height="100"
-                     style="position: relative; top: 270px; left: -20px; z-index: 2">
+                     style="position: relative; top: 240px; left: -20px; z-index: 6">
                 <img src="img/pinetreeright.png" height="120"
-                     style="position: relative; top: 260px; left: 340px; z-index: 2">
+                     style="position: relative; top: 230px; left: 340px; z-index: 5">
 
             </div>
 

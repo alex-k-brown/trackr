@@ -32,6 +32,9 @@ angular.module('myApp.detail-page', ['ngRoute'])
             Restangular.one("child-goals/").customPOST(childGoal).then(function (step) {
                 goal.child_goals.push(step);
             });
+            $scope.timeFrame = "";
+            $scope.step = "";
+
             $scope.addStepEdit = false;
 
         };
