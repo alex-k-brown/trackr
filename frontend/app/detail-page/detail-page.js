@@ -18,6 +18,11 @@ angular.module('myApp.detail-page', ['ngRoute'])
         $scope.inactiveButtons = "../app/partials/inactive-buttons.html";
         $scope.activeButtons = "../app/partials/active-buttons.html";
         $scope.completeButtons = "../app/partials/complete-buttons.html";
+        $scope.detailBox = "../app/partials/detail-box.html";
+        $scope.activeStepsBox = "../app/partials/active-steps-box.html";
+        $scope.inactiveStepsBox = "../app/partials/inactive-steps-box.html";
+        $scope.completedStepsBox = "../app/partials/completed-steps-box.html";
+        $scope.mountainGraphic = "../app/partials/mountain-graphic.html";
 
 
 //        SECTION I'M WORKING ON TO ADD STEP
