@@ -25,7 +25,6 @@ angular.module('myApp.detail-page', ['ngRoute'])
         $scope.mountainGraphic = "../app/partials/mountain-graphic.html";
 
 
-//        SECTION I'M WORKING ON TO ADD STEP
         $scope.stepAdd = function (goal, step) {
 
             var childGoal = {
@@ -49,13 +48,13 @@ angular.module('myApp.detail-page', ['ngRoute'])
         });
 
         $scope.stepDelete = function (childGoal) {
-            Restangular.one("child-goals", childGoal.id).customDELETE().then(function() {
-                var index = $scope.goal.child_goals.indexOf(childGoal);
-                $scope.goal.child_goals.splice(index, 1);
-            })
+            if (confirm("Are you sure you want to delete this step?")) {
+                Restangular.one("child-goals", childGoal.id).customDELETE().then(function () {
+                    var index = $scope.goal.child_goals.indexOf(childGoal);
+                    $scope.goal.child_goals.splice(index, 1);
+                })
+            }
         };
-
-//        END OF SECTION I'M WORKING ON
 
 
         $scope.statusChange = function (childGoal, status) {
