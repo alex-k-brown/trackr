@@ -11,9 +11,9 @@ angular.module('myApp.journal', ['ngRoute'])
 
 
     .controller('journalCtrl', ["Restangular", "$scope", function (Restangular, $scope) {
-         Restangular.all('journal-entries').getList().then(function(journalEntries) {
+        Restangular.all('journal-entries').getList().then(function (journalEntries) {
             $scope.journalEntries = journalEntries;
+
 
         })
     }]);
-

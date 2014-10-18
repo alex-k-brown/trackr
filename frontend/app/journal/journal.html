@@ -13,49 +13,49 @@
 
     <div class="container">
         <div class="row" style="margin-top: -60px;">
-            <div class="col-lg-4"></div>
-            <div class="col-sm-4">
 
-
-                <input type="text" class="form-control text-center"
+            <div class="col-lg-4 col-lg-offset-4">
+                <input data-ng-model="journalEntry.topic"
+                       type="text"
+                       class="form-control text-center"
                        placeholder="Journal Topic"/><br>
             </div>
-            <div class="col-lg-4"></div>
         </div>
 
-        <div class="row" style="margin-right: 60px; margin-left: 60px">
-            <div class="col-4"></div>
-            <div class="col-4">
-
-                <textarea type="text" style="margin-right: 40px"
-                          placeholder="Did you accomplish your goal today and how did it feel?     If you didn't accomplish your goal today, what can you do tomorrow to help you succeed?"
-                          class="form-control" rows="5"></textarea><br>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <textarea data-ng-model="journalEntry.entry"
+                          type="text"
+                          placeholder="Did you accomplish your goal today and how did it feel? If you didn't accomplish your goal today, what can you do tomorrow to help you succeed?"
+                          class="form-control"
+                          rows="5"></textarea>
+                <br>
             </div>
-            <div class="col-4"></div>
         </div>
 
-        <div class="row" style="margin-right: 60px; margin-left: 60px">
+        <div class="row">
 
-        <button class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+            <div class="col-lg-10 col-lg-offset-1">
+                <button class="btn btn-success"><i class="fa fa-save"></i> Save</button>
 
-        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
 
-        <button class="btn btn-info"><i class="fa fa-image"></i> Add a Picture</button>
+                <button class="btn btn-warning"><i class="glyphicon glyphicon-thumbs-up"></i> Feeling Good!</button>
 
-        <button class="btn btn-warning"><i class="glyphicon glyphicon-thumbs-up"></i> Feeling Good!</button>
+                <button class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-down"></i> Feeling Down</button>
 
-        <button class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-down"></i> Feeling Down</button>
-        <br>
+                <br>
             </div>
 
-        <p>&nbsp</p>
+        </div>
 
 
+        <div class="col-lg-4 col-lg-offset-1">
+            <div data-ng-repeat="journalEntry in journalEntries">
+                <h3>{{ journalEntry.topic }}</h3>
+                <p>{{ journalEntry.entry }}</p>
 
-        <div data-ng-repeat="journalEntry in journalEntries">
-            <h3>{{ journalEntry.topic }}</h3>
-            <p>{{ journalEntry.entry }}</p>
-
+            </div>
         </div>
     </div>
 
