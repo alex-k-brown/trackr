@@ -31,10 +31,10 @@ class ChildGoalList(generics.ListCreateAPIView):
     queryset = ChildGoal.objects.all()
 
 
-class Journal(generics.ListCreateAPIView):
-    model = Journal
-    serializer_class = JournalSerializer
-    queryset = Journal.objects.all()
+class JournalEntriesList(generics.ListCreateAPIView):
+    model = JournalEntry
+    serializer_class = JournalEntrySerializer
+    queryset = JournalEntry.objects.all()
 
 
 class TimeFrameList(generics.ListAPIView):

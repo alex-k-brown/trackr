@@ -14,5 +14,6 @@ urlpatterns = patterns(
     url(r'^child-goals/(?P<pk>[0-9]+)$', ChildGoalDetail.as_view(), name='child-goals-detail'),
     url(r'^time-frame/$', TimeFrameList.as_view(), name='time-frames-list')
 
+    url(r'^journal-entries/$', JournalEntriesList.as_view(), name='journal-entries-list'),
 
 )

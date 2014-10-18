@@ -44,6 +44,6 @@ class ChildGoalSerializer(serializers.ModelSerializer):
         model = ChildGoal
 
 
-class JournalSerializer(serializers.ModelSerializer):
+class JournalEntrySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Journal
+        model = JournalEntry
