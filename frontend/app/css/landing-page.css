@@ -188,12 +188,15 @@ body {
 }
 
 
-
 .journal-background {
     background: #FFFF00 url(../img/journal_mountain.jpg);
     background-size: cover;
     margin: 0 auto;
 }
 
-
+.nav-text {
+    font-family: Oldtown, fantasy;
+    color: #00C9FC;
+    font-size: 1.25em;
+}
 
