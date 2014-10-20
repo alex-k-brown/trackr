@@ -14,6 +14,13 @@ angular.module('myApp.journal', ['ngRoute'])
         Restangular.all('journal-entries').getList().then(function (journalEntries) {
             $scope.journalEntries = journalEntries;
 
+        });
 
-        })
+         $scope.addEntry = function (journalEntry) {
+            Restangular.one('journal-entries/').customPOST(journalEntry).then(function(journalEntry){
+                 $scope.journalEntries.push(journalEntry)
+                 $scope.journalEntry={};
+            })
+
+         };
     }]);
