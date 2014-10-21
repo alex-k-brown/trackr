@@ -19,7 +19,7 @@
                     <ng-include src="activeButtons"></ng-include>
                 </div>
                 <div ng-show="childGoal.editing == true">
-                    <input ng-model="childGoal.step" ng-keypress="stepChange($event, childGoal)"/>
+                    <input ng-model="childGoal.step" maxlength="45" ng-keypress="stepChange($event, childGoal)"/>
                     <ng-include src="activeButtons"></ng-include>
                 </div>
             </div>

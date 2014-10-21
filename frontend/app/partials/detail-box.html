@@ -2,7 +2,7 @@
     <p class="detail-desc">
         {{ goal.description }}
     </p>
-    <i ng-click="addStepEdit = true" ng-hide="addStepEdit == true" class="btn but-cust btn-success">
+    <i ng-click="$parent.addStepEdit = true" ng-hide="$parent.addStepEdit == true" class="btn but-cust btn-success">
         <i class="fa fa-plus fa-lg"></i> Add Step</i>
 
     <div align="center" ng-show="addStepEdit == true">
@@ -11,16 +11,16 @@
         <label style="margin-top: 10px; margin-right: 150px">Select Time Frame</label>
 
         <div class="input-group" style="margin-top: 0px; max-width: 400px">
-            <select ng-model="timeFrame" class="form-control"
+            <select ng-model="$parent.timeFrame" class="form-control"
                     ng-options="timeFrame.id as timeFrame.name for timeFrame in timeFrames"></select>
-                        <span class="input-group-btn">
-                            <button class="btn btn-success but-cust" type="button" ng-click="stepAdd(goal, step)">Save
-                                Step
-                            </button>
-                            <button class="btn btn-danger but-cust" type="button" ng-click="addStepEdit = false">
-                                Cancel
-                            </button>
-                        </span>
+            <span class="input-group-btn">
+                <button class="btn btn-success but-cust" type="button" ng-click="stepAdd(goal, step)">Save
+                    Step
+                </button>
+                <button class="btn btn-danger but-cust" type="button" ng-click="$parent.addStepEdit = false">
+                    Cancel
+                </button>
+            </span>
         </div>
     </div>
 </div>
