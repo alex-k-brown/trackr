@@ -18,9 +18,13 @@ angular.module('myApp.detail-page', ['ngRoute'])
         $scope.inactiveButtons = "../app/partials/inactive-buttons.html";
         $scope.activeButtons = "../app/partials/active-buttons.html";
         $scope.completeButtons = "../app/partials/complete-buttons.html";
+        $scope.detailBox = "../app/partials/detail-box.html";
+        $scope.activeStepsBox = "../app/partials/active-steps-box.html";
+        $scope.inactiveStepsBox = "../app/partials/inactive-steps-box.html";
+        $scope.completedStepsBox = "../app/partials/completed-steps-box.html";
+        $scope.mountainGraphic = "../app/partials/mountain-graphic.html";
 
 
-//        SECTION I'M WORKING ON TO ADD STEP
         $scope.stepAdd = function (goal, step) {
 
             var childGoal = {
@@ -32,6 +36,9 @@ angular.module('myApp.detail-page', ['ngRoute'])
             Restangular.one("child-goals/").customPOST(childGoal).then(function (step) {
                 goal.child_goals.push(step);
             });
+            $scope.timeFrame = "";
+            $scope.step = "";
+
             $scope.addStepEdit = false;
 
         };
@@ -41,13 +48,13 @@ angular.module('myApp.detail-page', ['ngRoute'])
         });
 
         $scope.stepDelete = function (childGoal) {
-            Restangular.one("child-goals", childGoal.id).customDELETE().then(function() {
-                var index = $scope.goal.child_goals.indexOf(childGoal);
-                $scope.goal.child_goals.splice(index, 1);
-            })
+            if (confirm("Are you sure you want to delete this step?")) {
+                Restangular.one("child-goals", childGoal.id).customDELETE().then(function () {
+                    var index = $scope.goal.child_goals.indexOf(childGoal);
+                    $scope.goal.child_goals.splice(index, 1);
+                })
+            }
         };
-
-//        END OF SECTION I'M WORKING ON
 
 
         $scope.statusChange = function (childGoal, status) {
@@ -64,7 +71,8 @@ angular.module('myApp.detail-page', ['ngRoute'])
             Restangular.one("child-goals", childGoal.id).customPUT(childGoal).then(function (chGoal) {
                 childGoal = chGoal;
             });
-        }
+
+        };
 
         $scope.stepChange = function (keyEvent, childGoal) {
 

@@ -5,11 +5,9 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.home',
   'myApp.addAGoal',
-  'myApp.d3graph',
   'myApp.version',
   'restangular',
   'ui.bootstrap',
-  'd3',
   'myApp.detail-page',
   'myApp.achievements'
     
