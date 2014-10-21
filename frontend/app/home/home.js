@@ -27,9 +27,19 @@ angular.module('myApp.home', ['ngRoute'])
             }
             console.log($scope.anythingClicked)
         }
-$('.first.circle').circleProgress({
-    value: 0.35,
-    animation: false,
-    fill: { gradient: ['#ff1e41', '#ff5f43'] }
-});
+        $scope.goalChange = function (childGoal, goal) {
+            childGoal.complete = !childGoal.complete;
+            Restangular.one("child-goals", childGoal.id).customPUT(childGoal).then(function (chGoal) {
+                childGoal = chGoal;
+            });
+            $scope.calculatePercent(goal);
+        }
+        $scope.calculatePercent = function (goal) {
+            var completedGoals = 0;
+            for(var i = 0; i < goal.child_goals.length; i++){
+                if (goal.child_goals[i].complete) completedGoals++;
+            }
+            goal.percent = completedGoals/goal.child_goals.length;
+        }
+
     }]);

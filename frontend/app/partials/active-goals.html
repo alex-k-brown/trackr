@@ -1,33 +1,19 @@
 <!--<div class="first circle"></div>-->
 
 
-<div class="container col-lg-12">
-    <div style="font-size: 2em; color: #2D9C75">{{goal.name}}</div>
+<div class="panel panel-default" style="vertical-align: text-top" ng-init="calculatePercent(goal)">
+    <div style="font-size: 2em; color: #2D9C75" class="panel-heading">{{goal.name}}</div>
+    <br>
+    <span progress-circle="goal.percent">
+    </span><span>{{goal.percent * 100}}%</span>
+    <div class="panel-body"
+         ng-controller="DetailPageCtrl"
+         style="font-size: 1.5em"
+         ng-repeat="childGoal in goal.child_goals">
+        <i class="fa"
+            ng-class="{'fa-square-o': !childGoal.complete, 'fa-check-square-o': childGoal.complete}"
+            ng-click="goalChange(childGoal, $parent.goal)">
+        </i> {{childGoal.step}}
+    </div>
+
 </div>
-<div class="container col-lg-2"
-     style="vertical-align: text-top">
-
-
-    <!--<div class="progress">
-        <div class="progress-bar progress-bar-info progress-bar-striped active"
-             role="progressbar"
-            aria-valuenow="40"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            style="width: {{ goal.goal_progress }}%">{{ goal.goal_progress }}
-        </div>-->
-</div>
-</div>
-
-<div class="container col-lg-"><br></div>
-
-<div style="font-size: 1.5em"
-     ng-repeat="childGoal in goal.child_goals"
-     class="container col-lg-12">
-    <i class="fa"
-       ng-class="{'fa-square-o': !childGoal.complete, 'fa-check-square-o': childGoal.complete}"
-       ng-click="childGoal.complete = !childGoal.complete">
-    </i> {{childGoal.step}}
-</div>
-
-<div class="container col-lg-"><br></div>
