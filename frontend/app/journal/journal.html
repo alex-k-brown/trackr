@@ -1,0 +1,60 @@
+<div class="journal-background">
+    <div class="row" style="align-items: center">
+        <div class="col-lg-12">
+            <div class="intro-message">
+                <p style="font-family: 'Ubuntu', sans-serif; color: #27fdbd; font-size: 7em; text-align: center">
+                    <img style="width: 1em" src="img/icon.png">
+                    Journal
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="margin-top: -60px;">
+
+            <div class="col-lg-4 col-lg-offset-4">
+                <input data-ng-model="journalEntry.topic"
+                       type="text"
+                       class="form-control text-center"
+                       placeholder="Journal Topic"/><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <textarea data-ng-model="journalEntry.entry"
+                          type="text"
+                          placeholder="Did you accomplish your goal today and how did it feel? If you didn't accomplish your goal today, what can you do tomorrow to help you succeed?"
+                          class="form-control"
+                          rows="5"></textarea>
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-10 col-lg-offset-1">
+
+                <button class="btn btn-success"ng-click="addEntry(journalEntry)"><i class="fa fa-save"></i> Save</button>
+
+                <br>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-lg-offset-1">
+            <div data-ng-repeat="journalEntry in journalEntries">
+                <h3>{{ journalEntry.topic }}</h3>
+                <p>{{ journalEntry.entry }}</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+

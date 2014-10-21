@@ -9,8 +9,9 @@ angular.module('myApp', [
   'restangular',
   'ui.bootstrap',
   'myApp.detail-page',
-  'myApp.achievements'
-    
+  'myApp.achievements',
+  'myApp.journal'
+
 ]).
 config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});

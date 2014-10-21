@@ -169,13 +169,34 @@ p.copyright {
     margin: 15px 0 0;
 }
 
+body {
+    padding-top: 50px;
+}
+
 .add-a-goal-background {
     background: #FFFF00 url(../img/snowy-mountains.jpg);
     background-size: cover;
     margin: 0 auto;
+    height: 100vh;
 }
 
 .achievements-background {
     background: url(../img/achieve2.jpg);
-    background-size: 100%;
+    background-size: cover;
+    height: 100vh;
+
 }
+
+
+.journal-background {
+    background: #FFFF00 url(../img/journal_mountain.jpg);
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.nav-text {
+    font-family: Oldtown, fantasy;
+    color: #00C9FC;
+    font-size: 1.25em;
+}
+
