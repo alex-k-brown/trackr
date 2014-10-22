@@ -92,6 +92,8 @@ ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_WHITELIST = (
     'localhost:8000',
     'localhost/',
+'104.131.143.77',
+'ccstevenson.com'
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
