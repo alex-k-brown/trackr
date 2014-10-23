@@ -11,8 +11,8 @@ angular.module('myApp.home', ['ngRoute'])
 
     .controller('HomeCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
 
-        $scope.activeGoals = "../app/partials/active-goals.html"
-        Restangular.all('goals').getList().then(function (goals) {
+        $scope.activeGoals = "partials/active-goals.html"
+        Restangular.all('goals/').getList().then(function (goals) {
             $scope.goals = goals;
             $scope.orderProp = 'duedate';
         })

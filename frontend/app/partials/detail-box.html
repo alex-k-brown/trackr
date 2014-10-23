@@ -5,7 +5,7 @@
     <i ng-click="$parent.addStepEdit = true" ng-hide="$parent.addStepEdit == true" class="btn but-cust btn-success">
         <i class="fa fa-plus fa-lg"></i> Add Step</i>
 
-    <div align="center" ng-show="addStepEdit == true">
+    <div align="center" ng-show="$parent.addStepEdit == true">
         <input ng-model="step" placeholder="Enter Step Description" maxlength="45" class="form-control"
                style="max-width: 400px; text-align: center;"/>
         <label style="margin-top: 10px; margin-right: 150px">Select Time Frame</label>

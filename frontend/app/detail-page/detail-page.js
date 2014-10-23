@@ -15,14 +15,14 @@ angular.module('myApp.detail-page', ['ngRoute'])
             $scope.goal = goal
         });
 
-        $scope.inactiveButtons = "../app/partials/inactive-buttons.html";
-        $scope.activeButtons = "../app/partials/active-buttons.html";
-        $scope.completeButtons = "../app/partials/complete-buttons.html";
-        $scope.detailBox = "../app/partials/detail-box.html";
-        $scope.activeStepsBox = "../app/partials/active-steps-box.html";
-        $scope.inactiveStepsBox = "../app/partials/inactive-steps-box.html";
-        $scope.completedStepsBox = "../app/partials/completed-steps-box.html";
-        $scope.mountainGraphic = "../app/partials/mountain-graphic.html";
+        $scope.inactiveButtons = "partials/inactive-buttons.html";
+        $scope.activeButtons = "partials/active-buttons.html";
+        $scope.completeButtons = "partials/complete-buttons.html";
+        $scope.detailBox = "partials/detail-box.html";
+        $scope.activeStepsBox = "partials/active-steps-box.html";
+        $scope.inactiveStepsBox = "partials/inactive-steps-box.html";
+        $scope.completedStepsBox = "partials/completed-steps-box.html";
+        $scope.mountainGraphic = "partials/mountain-graphic.html";
 
 
         $scope.stepAdd = function (goal, step) {
